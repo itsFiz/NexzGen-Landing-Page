@@ -1,0 +1,31 @@
+/* ProjectCard.module.css */
+.projectCard:hover .overlay {
+    opacity: 0.5; /* Adjust the opacity as needed */
+  }
+  
+  .overlay {
+    opacity: 0;
+    background-color: black;
+    transition: opacity 0.5s ease;
+  }
+  
+  .hoverContent {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .projectCard:hover .hoverContent {
+    opacity: 1;
+  }
+  
+  .link:hover {
+    border-color: white;
+  }
+  
+  .icon {
+    color: white;
+  }
+  
+  .content {
+    z-index: 1;
+  }
