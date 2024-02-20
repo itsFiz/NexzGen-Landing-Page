@@ -1,55 +1,57 @@
+import { FaDiscord, FaFacebook, FaInstagram, FaTelegram, FaTwitter, FaWhatsapp, FaYoutube} from "react-icons/fa";
+
 export const Skill_data = [
     {
-      skill_name: "Html 5",
-      Image: "/html.png",
+      skill_name: "Unity",
+      Image: "/unity.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Css",
-      Image: "/css.png",
+      skill_name: "Vuforia",
+      Image: "/vuforiaa.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Java Script",
-      Image: "/js.png",
+      skill_name: "Blender",
+      Image: "/blender.png",
       width: 65,
       height: 65,
     },
     {
-      skill_name: "Tailwind Css",
-      Image: "/tailwind.png",
+      skill_name: "3ds Max",
+      Image: "/3dsmaxx.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "React",
-      Image: "/react.png",
+      skill_name: "Maya",
+      Image: "/maya.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Redux",
-      Image: "/redux.png",
+      skill_name: "Meta Spark",
+      Image: "/metaspark.webp",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "React Query",
-      Image: "/reactquery.png",
+      skill_name: "Adobe XD",
+      Image: "/xdd.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Type Script",
-      Image: "/ts.png",
-      width: 80,
-      height: 80,
+      skill_name: "Figma",
+      Image: "/figma.png",
+      width: 40,
+      height: 40,
     },
     {
-      skill_name: "Next js 13",
-      Image: "/next.png",
+      skill_name: "Xmind",
+      Image: "/Xmins.ico",
       width: 80,
       height: 80,
     },
@@ -66,16 +68,16 @@ export const Skill_data = [
       height: 80,
     },
     {
-      skill_name: "Node js",
-      Image: "/node-js.png",
+      skill_name: "draw.io",
+      Image: "/drawio.png",
       width: 80,
       height: 80,
     },
     {
-      skill_name: "Mongo db",
-      Image: "/mongodb.png",
-      width: 40,
-      height: 40,
+      skill_name: "Postman",
+      Image: "/postman.png",
+      width: 80,
+      height: 80,
     },
   
   ];
@@ -83,18 +85,15 @@ export const Skill_data = [
   export const Socials = [
     {
       name: "Discord",
-      src: "/discord.svg",
-      link:"https://discord.gg/8W9JWf5xpB"
+      icon: FaDiscord,
+      link: "https://discord.gg/8W9JWf5xpB"
     },
-
     {
       name: "Instagram",
-      src: "/instagram.svg",
+      icon: FaInstagram,
       link: "https://www.instagram.com/nexzgenofficial/"
-
     },
   ];
-  
   
   
   export const Frontend_skill = [
@@ -186,7 +185,7 @@ export const Skill_data = [
       height: 55,
     },
     {
-      skill_name: "Postger SQL",
+      skill_name: "Postgre SQL",
       Image: "/postger.png",
       width: 70,
       height: 70,
@@ -231,25 +230,12 @@ export const Skill_data = [
       height: 70,
     },
   
-    {
-      skill_name: "Figma",
-      Image: "/figma.png",
-      width: 50,
-      height: 50,
-    },
-  
+    
   ];
   
   
   
-  export const Other_skill = [
-    {
-      skill_name: "Go",
-      Image: "/go.png",
-      width: 60,
-      height: 60,
-    },
-  ];
+
   
   
   

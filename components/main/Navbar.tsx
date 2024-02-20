@@ -1,7 +1,8 @@
 'use client'
 import { useState } from "react";
-import { Socials } from "@/constants";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { FaDiscord, FaFacebook, FaInstagram, FaTelegram, FaTwitter, FaWhatsapp, FaYoutube } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -75,10 +76,10 @@ const Navbar = () => {
               Tech Stack
             </a>
             <a
-              href="#projects"
+              href="#product"
               className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
             >
-              Projects
+              Product
             </a>
             <a
               href="#footer"
@@ -91,7 +92,7 @@ const Navbar = () => {
 
         {/* Burger menu for mobile screens */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-[65px] right-0 left-0 bg-[#03001417] py-2">
+          <div className="md:hidden absolute top-[65px] right-0 left-0 bg-[black] py-2">
             <a
               href="#home"
               className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
@@ -117,10 +118,10 @@ const Navbar = () => {
               Tech Stack
             </a>
             <a
-              href="#projects"
+              href="#product"
               className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
             >
-              Projects
+              Product
             </a>
             <a
               href="#footer"
@@ -130,17 +131,33 @@ const Navbar = () => {
             </a>
           </div>
         )}
-
+        {/* Social Icons */}
         <div className="flex flex-row gap-2 md:gap-5">
-          {Socials.map((social) => (
-            <Image
-              src={social.src}
-              alt={social.name}
-              key={social.name}
-              width={24}
-              height={24}
-            />
-          ))}
+          <a
+            href="https://www.instagram.com/nexzgenofficial"
+            className="navbar-link flex flex-row items-center my-[15px] cursor-pointer text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <motion.div
+              whileHover={{ scale: 1.3 }}
+            >
+              <FaYoutube />
+            </motion.div>
+          </a>
+          <a
+            href="https://twitter.com/nexzgenofficial"
+            className="navbar-link flex flex-row items-center my-[15px] cursor-pointer text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <motion.div
+              whileHover={{ scale: 1.3 }}
+            >
+              <FaWhatsapp />
+            </motion.div>
+          </a>
+          {/* Add other social icons here */}
         </div>
       </div>
     </div>

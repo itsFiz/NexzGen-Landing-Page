@@ -10,7 +10,7 @@ const Projects = () => {
   const [tag, setTag] = useState("All");
   const [ref, inView] = useInView({ triggerOnce: true });
 
-  const handleTagChange = (newTag) => {
+  const handleTagChange = (newTag: React.SetStateAction<string>) => {
     setTag(newTag);
   };
 
@@ -67,28 +67,28 @@ const Projects = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-20 z-[20] " id="projects">
+    <div className="flex flex-col items-center justify-center  z-[20] " id="product">
       <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-50 py-20">
-        Our Projects
+        Our Product
       </h1>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
-          onClick={handleTagChange}
+          onClick={() => handleTagChange("All")}
           name="All"
           isSelected={tag === "All"}
         />
         <ProjectTag
-          onClick={handleTagChange}
+          onClick={() => handleTagChange("Web")}
           name="Web"
           isSelected={tag === "Web"}
         />
         <ProjectTag
-          onClick={handleTagChange}
+          onClick={() => handleTagChange("AR")}
           name="AR"
           isSelected={tag === "AR"}
         />
         <ProjectTag
-          onClick={handleTagChange}
+          onClick={() => handleTagChange("Animation")}
           name="Animation"
           isSelected={tag === "Animation"}
         />

@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
@@ -43,10 +44,10 @@ function Services() {
                       className="aspect-square object-contain object-center w-[60px] justify-center items-center backdrop-blur-[10px] overflow-hidden max-w-full self-start"
                     />
                     <div className="text-white text-3xl self-stretch whitespace-nowrap mt-6">
-                      Website Development
+                      Web Development
                     </div>
                     <div className="text-white text-base leading-7 self-stretch mt-4">
-                     bring your digital vision to life. We ensures seamless functionality, robust architecture, and an engaging user experience, leveraging the latest technologies to create a digital presence that stands out in the online landscape.
+                    Transforming digital ideas into dynamic, user-centric websites and applications.
                     </div>
                     <div className="items-stretch self-stretch flex justify-between gap-1 mt-4 pr-7 max-md:pr-5">
                     <a href="YOUR_LINK_HERE" className="text-white text-base leading-7 underline flex items-center gap-1">
@@ -107,7 +108,7 @@ function Services() {
                       UI/UX Design
                     </div>
                     <div className="text-white text-base leading-7 self-stretch mt-4">
-                    focusing on creating visually appealing, intuitive, and delightful digital experiences. From wireframing and prototyping to the final user interface, we prioritize user-centric design principles.
+                    Crafting seamless and visually appealing digital experiences that prioritize user satisfaction.
                     </div>
                     <div className="items-stretch self-stretch flex justify-between gap-1 mt-4 pr-7 max-md:pr-5">
                     <a href="YOUR_LINK_HERE" className="text-white text-base leading-7 underline flex items-center gap-1">
@@ -187,7 +188,7 @@ function Services() {
                       Animation
                     </div>
                     <div className="text-white text-base leading-7 self-stretch mt-4">
-                      specialize in 2D and 3D animation to tell compelling stories, convey complex ideas, and captivate audiences. Animated videos for marketing, explainer videos for products, or immersive animations for entertainment, we infuse life into your concepts.
+                    Bringing stories and concepts to life through captivating 2D and 3D animations.
                     </div>
                     <div className="items-stretch self-stretch flex justify-between gap-1 mt-4 pr-7 max-md:pr-5">
                     <a href="YOUR_LINK_HERE" className="text-white text-base leading-7 underline flex items-center gap-1">
@@ -227,7 +228,7 @@ function Services() {
                       Augmented Reality
                     </div>
                     <div className="text-white text-base leading-7 self-stretch mt-4">
-                    create interactive and captivating experiences across various industries. From AR-enhanced mobile apps to virtual try-on solutions and interactive marketing campaigns, embrace this cutting-edge technology to engage your audience, elevate brand experiences, and stay ahead in the digital realm.
+                    Creating immersive and interactive experiences that bridge the physical and digital worlds.
                     </div>
                     <div className="items-stretch flex gap-1 mt-4">
                     <a href="YOUR_LINK_HERE" className="text-white text-base leading-7 underline flex items-center gap-1">
@@ -242,11 +243,11 @@ function Services() {
                   </div>
                 </div>
                 <div className="flex flex-col items-stretch w-[49%] ml-5 max-md:w-full max-md:ml-0">
-                  <div className="backdrop-blur-[7.5px] flex grow flex-col justify-center items-stretch w-full mt-3 pl-14 pr-11 py-9 rounded-3xl border-[1.2px] border-solid border-white max-md:mt-10 max-md:px-5">
+                  <div className="backdrop-blur-[7.5px] flex grow flex-col justify-center items-stretch w-full mt-3  pl-14 pr-11 py-9 rounded-3xl border-[1.2px] border-solid border-white max-md:mt-10 max-md:px-5">
                     <img
                       loading="lazy"
                       srcSet="https://i.imgur.com/jHmsa44.png"
-                      className="aspect-square object-contain object-center w-full overflow-hidden"
+                      className="aspect-square object-contain object-center w-[200px]  overflow-hidden"
                     />
                   </div>
                 </div>

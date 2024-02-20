@@ -6,15 +6,19 @@ import {
   RxInstagramLogo,
   RxTwitterLogo,
   RxLinkedinLogo,
+
 } from "react-icons/rx";
 
-import { FaYoutube } from "react-icons/fa";
+import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
+
+import { FaDiscord, FaFacebook, FaInstagram, FaTelegram, FaTwitter, FaWhatsapp, FaYoutube} from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const currentYear = new Date().getFullYear();
 const Footer = () => {
   return (
     <section
       id="footer"
-      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-40 mt-40 relative z-[20] "
+      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden  mt-40 relative z-[20] "
       style={{ transform: "scale(0.9" }}
     >
     <div className="w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px] relative z-[20]">
@@ -29,7 +33,7 @@ const Footer = () => {
               />
               <div className="text-white text-2xl self-center grow shrink basis-auto my-auto">
                 <span className="font-bold ml-[10px] hidden md:block text-gray-300 ">
-                  NexzGen
+                  NexzGen 
                 </span>
               </div>
             </div>
@@ -100,21 +104,15 @@ const Footer = () => {
           </div>
           <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
             <div className="font-bold text-[16px]">Community</div>
-            <p className="footer-link flex flex-row items-center my-[15px] cursor-pointer">
-              <FaYoutube />
-              <span className="text-[15px] ml-[6px]">Youtube</span>
-            </p>
-            <p className="footer-link flex flex-row items-center my-[15px] cursor-pointer">
-              <RxGithubLogo />
-              <span className="text-[15px] ml-[6px]">Github</span>
-            </p>
-            <p className="footer-link flex flex-row items-center my-[15px] cursor-pointer">
-              <RxDiscordLogo />
+            <a
+              href="https://www.instagram.com/nexzgenofficial"
+              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaDiscord />
               <span className="text-[15px] ml-[6px]">Discord</span>
-            </p>
-          </div>
-          <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-            <div className="font-bold text-[16px]">Social Media</div>
+            </a>
             <a
               href="https://www.instagram.com/nexzgenofficial"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
@@ -122,7 +120,7 @@ const Footer = () => {
               rel="noopener noreferrer"
             >
               <FaYoutube />
-              <span className="text-[15px] ml-[6px]">Instagram</span>
+              <span className="text-[15px] ml-[6px]">YouTube</span>
             </a>
             <a
               href="https://twitter.com/nexzgenofficial"
@@ -130,8 +128,8 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <RxGithubLogo />
-              <span className="text-[15px] ml-[6px]">Twitter</span>
+              <FaWhatsapp/>
+              <span className="text-[15px] ml-[6px]">WhatsApp</span>
             </a>
             <a
               href="https://www.linkedin.com/in/nexzgen"
@@ -139,13 +137,53 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <RxLinkedinLogo />
-              <span className="text-[15px] ml-[6px]">Linkedin</span>
+              <FaTelegram />
+              <span className="text-[15px] ml-[6px]">Telegram</span>
             </a>
+          </div>
+          <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
+            <div className="font-bold text-[16px]">Social Media</div>
+            <a
+              href="https://www.linkedin.com/in/nexzgen"
+              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RxLinkedinLogo />
+              <span className="text-[15px] ml-[6px]">LinkedIn</span>
+            </a>
+            <a
+              href="https://www.instagram.com/nexzgenofficial"
+              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram />
+              <span className="text-[15px] ml-[6px]">Instagram</span>
+            </a>
+            <a
+              href="https://www.instagram.com/nexzgenofficial"
+              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook />
+              <span className="text-[15px] ml-[6px]">Facebook</span>
+            </a>
+            <a
+              href="https://twitter.com/nexzgenofficial"
+              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter/>
+              <span className="text-[15px] ml-[6px]">Twitter</span>
+            </a>
+            
           </div>
         </div>
         <div className="mb-[20px] text-[15px] text-center z-[3] mt-10">
-          Copyright &copy; {currentYear} NexzGen Inc. All rights reserved
+          Copyright &copy; {currentYear} NexzGen. All rights reserved
         </div>
       </div>
     </div>

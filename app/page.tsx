@@ -1,3 +1,4 @@
+import Clients from "@/components/main/Clients";
 import ContactForm from "@/components/main/ContactForm";
 import Encryption from "@/components/main/Encryption";
 import Hero from "@/components/main/Hero";
@@ -12,6 +13,7 @@ export default function Home() {
       <div className="flex flex-col gap-20">
         <Hero />
         <Services/>
+        <Clients/>
         <Skills />
         <Encryption />
         <Projects />

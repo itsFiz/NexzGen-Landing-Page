@@ -73,6 +73,7 @@ const HeroContent = () => {
       </div>
 
       <motion.div
+      animate={{ y: [10, -10, 10], transition: { repeat: Infinity, duration: 2 } }}
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
