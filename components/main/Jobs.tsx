@@ -44,34 +44,49 @@ const Jobs = () => {
     {
       title: "Fullstack Developer (Next.js)",
       type: "Engineering",
+      linkedinUrl: "https://wa.link/119fnj"
     },
     {
       title: "Flutter Developer",
       type: "Engineering",
+      linkedinUrl: "https://wa.link/119fnj"
+
     },
     {
       title: "UI/UX Designer",
       type: "Creative",
+      linkedinUrl: "https://wa.link/119fnj"
+
     },
     {
         title: "iOS Developer",
         type: "Engineering",
+      linkedinUrl: "https://wa.link/119fnj"
+
       },
     {
       title: "Graphic Designer",
       type: "Creative",
+      linkedinUrl: "https://wa.link/119fnj"
+
     },
     {
       title: "Talent Acquisition",
       type: "Human Resource",
+      linkedinUrl: "https://wa.link/119fnj"
+
     },
     {
       title: "Finance Analyst",
       type: "Finance",
+      linkedinUrl: "https://wa.link/119fnj"
+
     },
     {
         title: "Business Development",
         type: "Business",
+      linkedinUrl: "https://wa.link/119fnj"
+
     },
   ]);
 
@@ -89,7 +104,7 @@ const Jobs = () => {
       <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-50 py-20">
         Internship Opportunities
       </h1>
-      <div className="flex space-x-4">
+      <div className="flex space-x-4 tag-container">
         {tabs.map(tab => (
           <ProjectTag
             key={tab}

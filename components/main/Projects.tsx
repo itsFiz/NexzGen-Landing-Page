@@ -5,6 +5,7 @@ import ProjectCard from "../sub/ProjectCard";
 import ProjectTag from "../sub/ProjectTag";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import "./Project.css";
 
 const Projects = () => {
   const [tag, setTag] = useState("All");
@@ -100,7 +101,7 @@ const Projects = () => {
       <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-50 py-20">
         Our Work
       </h1>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+      <div className="text-white tag-container flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={() => handleTagChange("All")}
           name="All"
