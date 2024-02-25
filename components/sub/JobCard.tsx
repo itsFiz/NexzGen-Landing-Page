@@ -5,7 +5,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 interface JobCardProps {
   title: string;
   type: string;
-  linkedinUrl: string;
+  linkedinUrl?: string;
 }
 
 const JobCard: React.FC<JobCardProps> = ({ title, type, linkedinUrl }) => {

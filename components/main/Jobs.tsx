@@ -2,6 +2,11 @@
 import React, { useState } from "react";
 import JobCard from "../sub/JobCard"; // Assuming you have a JobCard component for displaying job details
 
+interface Job {
+    title: string;
+    type: string;
+    linkedinUrl?: string; // Make linkedinUrl optional if it's not always present
+  }
 interface ProjectTagProps {
     name: string;
     onClick: (name: string) => void;
@@ -25,6 +30,8 @@ const ProjectTag: React.FC<ProjectTagProps> = ({ name, onClick, isSelected }) =>
     </div>
   );
 };
+
+
 
 const Jobs = () => {
   const [selectedTab, setSelectedTab] = useState("All");
@@ -68,13 +75,13 @@ const Jobs = () => {
     },
   ]);
 
-  // Calculate the count of jobs for the selected tab
-  const jobCounts = jobs.reduce((acc, job) => {
+ // Calculate the count of jobs for the selected tab
+const jobCounts: { [key: string]: number } = jobs.reduce((acc, job) => {
     acc[job.type] = (acc[job.type] || 0) + 1;
     acc["All"] = (acc["All"] || 0) + 1;
     return acc;
   }, {});
-
+  
   const tabs = ["All", "Engineering", "Creative", "Business", "Human Resource", "Finance"];
 
   return (
