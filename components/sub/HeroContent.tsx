@@ -49,7 +49,7 @@ const HeroContent = () => {
         >
           <span>
             Discover your
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
               {" "}
               Ikigai{" "}
             </span>
@@ -66,7 +66,7 @@ const HeroContent = () => {
         <motion.a
           variants={slideInFromLeft(1)}
           className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-              href="#services"
+              href="#about"
         >
           Learn More!
         </motion.a>

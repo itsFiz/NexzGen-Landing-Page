@@ -44,8 +44,8 @@ const Encryption = () => {
           <h1 className="Welcome-text text-[12px]">Encryption</h1>
         </div>
       </div>
-      <div className="absolute z-[20] bottom-[10px] px-[5px]">
-        <div className="cursive text-[20px] font-medium text-center text-gray-300">
+      <div className="absolute z-[20] bottom-[5px] px-[5px]">
+        <div className=" text-[20px] font-medium text-center text-gray-300">
           Secure your data with end-to-end encryption
         </div>
       </div>

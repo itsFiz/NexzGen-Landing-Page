@@ -49,12 +49,7 @@ export const Skill_data = [
       width: 40,
       height: 40,
     },
-    {
-      skill_name: "Xmind",
-      Image: "/Xmins.ico",
-      width: 80,
-      height: 80,
-    },
+   
     {
       skill_name: "Framer Motion",
       Image: "/framer.png",

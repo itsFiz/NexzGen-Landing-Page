@@ -14,7 +14,7 @@ function Services() {
       animate="visible"
       variants={slideInFromTop}
     >
-    <div className="flex flex-row relative items-center justify-center min-h-screen w-full h-full mt-40 ">
+    <div className="flex flex-row relative items-center justify-center min-h-screen w-full h-full  ">
     <motion.div className="absolute w-auto h-auto top-0 z-[5]"initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}>
     <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-50 py-20">
@@ -47,10 +47,10 @@ function Services() {
                       Web Development
                     </div>
                     <div className="text-white text-base leading-7 self-stretch mt-4">
-                    Transforming digital ideas into dynamic, user-centric websites and applications.
+                    Transforming your digital concepts into dynamic, user-centric websites and applications. We prioritize functionality, aesthetics, and user experience, ensuring that your online presence reflects the essence of your brand. From responsive design to backend development, we handle every aspect of the process with meticulous attention to detail. 
                     </div>
                     <div className="items-stretch self-stretch flex justify-between gap-1 mt-4 pr-7 max-md:pr-5">
-                    <a href="YOUR_LINK_HERE" className="text-white text-base leading-7 underline flex items-center gap-1">
+                    <a href="https://wa.me/message/JGNQ5LCCMIPCK1" target="_blank" className="text-white text-base leading-7 underline flex items-center gap-1">
     Start with us
     <img
       loading="lazy"
@@ -105,13 +105,13 @@ function Services() {
                       className="aspect-square object-contain object-center w-[60px] justify-center items-center backdrop-blur-[10px] overflow-hidden max-w-full self-start"
                     />
                     <div className="text-white text-3xl self-stretch whitespace-nowrap mt-6">
-                      UI/UX Design
+                      Game Development
                     </div>
                     <div className="text-white text-base leading-7 self-stretch mt-4">
-                    Crafting seamless and visually appealing digital experiences that prioritize user satisfaction.
+                    Experience the thrill of interactive gameplay, where we fuse cutting-edge technology with creative ingenuity to deliver captivating digital experiences that redefine entertainment.
                     </div>
                     <div className="items-stretch self-stretch flex justify-between gap-1 mt-4 pr-7 max-md:pr-5">
-                    <a href="YOUR_LINK_HERE" className="text-white text-base leading-7 underline flex items-center gap-1">
+                    <a href="https://wa.me/message/JGNQ5LCCMIPCK1" target="_blank" className="text-white text-base leading-7 underline flex items-center gap-1">
     Start with us
     <img
       loading="lazy"
@@ -188,10 +188,10 @@ function Services() {
                       Animation
                     </div>
                     <div className="text-white text-base leading-7 self-stretch mt-4">
-                    Bringing stories and concepts to life through captivating 2D and 3D animations.
+                    Bringing stories and concepts to life through captivating 2D and 3D animations. combine artistic finesse with technical expertise to create visually stunning and emotionally engaging narratives.
                     </div>
                     <div className="items-stretch self-stretch flex justify-between gap-1 mt-4 pr-7 max-md:pr-5">
-                    <a href="YOUR_LINK_HERE" className="text-white text-base leading-7 underline flex items-center gap-1">
+                    <a href="https://wa.me/message/JGNQ5LCCMIPCK1" target="_blank" className="text-white text-base leading-7 underline flex items-center gap-1">
     Start with us
     <img
       loading="lazy"
@@ -228,10 +228,10 @@ function Services() {
                       Augmented Reality
                     </div>
                     <div className="text-white text-base leading-7 self-stretch mt-4">
-                    Creating immersive and interactive experiences that bridge the physical and digital worlds.
+                    Step into the future of immersive experiences with our augmented reality services. We specialize in creating interactive digital overlays that seamlessly blend the physical and digital worlds, transforming ordinary environments into extraordinary adventures. 
                     </div>
                     <div className="items-stretch flex gap-1 mt-4">
-                    <a href="YOUR_LINK_HERE" className="text-white text-base leading-7 underline flex items-center gap-1">
+                    <a href="https://wa.me/message/JGNQ5LCCMIPCK1" target="_blank" className="text-white text-base leading-7 underline flex items-center gap-1">
     Start with us
     <img
       loading="lazy"

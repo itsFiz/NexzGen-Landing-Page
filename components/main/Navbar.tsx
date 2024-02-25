@@ -6,6 +6,15 @@ import { FaDiscord, FaFacebook, FaInstagram, FaTelegram, FaTwitter, FaWhatsapp, 
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   const handleToggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -49,41 +58,42 @@ const Navbar = () => {
         </div>
 
         {/* Menu for larger screens */}
-        <div className="hidden md:flex w-[250px] md:w-[700px] h-full flex-row items-center justify-between md:mr-20">
+        <div className="hidden md:flex w-[250px] md:w-[800px] h-full flex-row items-center justify-between md:mr-20">
           <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[10px] md:mr-[15px] px-[10px] md:px-[20px] py-[5px] md:py-[10px] rounded-full text-gray-200">
             <a
               href="#home"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-purple hover:scale-110"
+              className=" font-semibold block py-2 px-4 text-gray-200 hover:text-purple hover:scale-110"
             >
               Home
             </a>
             <a
-              href="#home"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
+              href="#about"
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
             >
               About Us
             </a>
             <a
               href="#services"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
             >
               Services
             </a>
-            <a
-              href="#skills"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
-            >
-              Tech Stack
-            </a>
+            
             <a
               href="#product"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
+              className="font-semibold  block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
             >
-              Product
+              Work
+            </a>
+            <a
+              href="#career"
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
+            >
+              Career
             </a>
             <a
               href="#footer"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2 hover:scale-110"
             >
               Contact
             </a>
@@ -95,70 +105,55 @@ const Navbar = () => {
           <div className="md:hidden absolute top-[65px] right-0 left-0 bg-[black] py-2">
             <a
               href="#home"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
             >
               Home
             </a>
             <a
               href="#home"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
             >
               About Us
             </a>
             <a
               href="#services"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
             >
               Services
             </a>
-            <a
-              href="#skills"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
-            >
-              Tech Stack
-            </a>
+            
+            
+            
             <a
               href="#product"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
             >
-              Product
+              Work
             </a>
             <a
               href="#footer"
-              className="footer-link block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2 "
+            >
+              Career
+            </a>
+            <a
+              href="#footer" 
+              className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
             >
               Contact
             </a>
+            
           </div>
         )}
-        {/* Social Icons */}
-        <div className="flex flex-row gap-2 md:gap-5">
-          <a
-            href="https://www.instagram.com/nexzgenofficial"
-            className="navbar-link flex flex-row items-center my-[15px] cursor-pointer text-white"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <motion.div
-              whileHover={{ scale: 1.3 }}
-            >
-              <FaYoutube />
-            </motion.div>
-          </a>
-          <a
-            href="https://twitter.com/nexzgenofficial"
-            className="navbar-link flex flex-row items-center my-[15px] cursor-pointer text-white"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <motion.div
-              whileHover={{ scale: 1.3 }}
-            >
-              <FaWhatsapp />
-            </motion.div>
-          </a>
-          {/* Add other social icons here */}
-        </div>
+        {/* Get Started Button */}
+        <a
+        href="#services"
+        className={`text-white italic font-semibold py-2 px-4 rounded-full hidden md:block ${isHovered ? 'bg-gradient-to-r from-purple-500 to-blue-500' : ''}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        Get Started
+      </a>
       </div>
     </div>
   );

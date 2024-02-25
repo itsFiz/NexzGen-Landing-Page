@@ -5,15 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-  {
-    url: "/petronas-logo.png",
-    alt: "Petronas",
-  },
-
-  {
-    url: "/uoblogo.jpg",
-    alt: "UOB",
-  },
+  
 
   {
     url: "/rtm.png",
@@ -35,10 +27,6 @@ const images = [
     alt: "Perkeso",
   },
 
-  {
-    url: "/pharmaniaga.png",
-    alt: "Pharmaniaga",
-  },
 
   {
     url: "/litera.png",

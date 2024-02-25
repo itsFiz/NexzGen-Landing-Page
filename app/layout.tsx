@@ -6,13 +6,15 @@ import Navbar from "@/components/main/Navbar";
 import Footer from "@/components/main/Footer";
 import ContactForm from "@/components/main/ContactForm";
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NexzGen",
-  description: "This is my portfolio",
-  icons: "nexzgennn.png"
+  title: "NexzGen | Your Gateway to Cutting-Edge Solutions",
+  description: "NexzGen Studio is a dynamic hub of innovation, specializing in animation, augmented reality (AR), game development, and full-stack development. We blend cutting-edge technology with artistic expression to create immersive experiences that transcend boundaries.",
+  icons: "nexzgennn.png",
+  
 };
 
 export default function RootLayout({
@@ -28,6 +30,7 @@ export default function RootLayout({
         <StarsCanvas />
         <Navbar />
         {children}
+        <Analytics/>
         <Footer />
         
       </body>

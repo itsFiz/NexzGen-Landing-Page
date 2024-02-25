@@ -51,13 +51,13 @@ const Footer = () => {
           <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
             <div className="font-bold text-[16px]">About</div>
             <a
-              href="#become-sponsor"
+              href="https://drive.google.com/file/d/1zk9Ng9zKidp0BO4IseF_Ii17RXPWM0Zn/view?usp=sharing" target="blank"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
             >
               NexzGen Studio Sdn Bhd
             </a>
             <a
-              href="tel:+60198481727"
+              href="https://wa.me/message/JGNQ5LCCMIPCK1" target="blank"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
             >
               +60 19-8481727
@@ -72,31 +72,31 @@ const Footer = () => {
               href="#learning-about-me"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
             >
-              Kuala Lumpur, Malaysia{" "}
+              51200, Kuala Lumpur, Malaysia{" "}
             </a>
           </div>
           <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
             <div className="font-bold text-[16px]">Services</div>
             <a
-              href="#become-sponsor"
+              href="#services"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
             >
               Web Development
             </a>
             <a
-              href="#become-sponsor"
+              href="#services"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
             >
               UI/UX Design
             </a>
             <a
-              href="mailto:info@nexzgen.com"
+              href="#services"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
             >
               Animation
             </a>
             <a
-              href="mailto:info@nexzgen.com"
+              href="#services"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
             >
               Augmented Reality
@@ -105,7 +105,7 @@ const Footer = () => {
           <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
             <div className="font-bold text-[16px]">Community</div>
             <a
-              href="https://www.instagram.com/nexzgenofficial"
+              href="https://discord.gg/9TZa9Gn5"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
@@ -114,7 +114,7 @@ const Footer = () => {
               <span className="text-[15px] ml-[6px]">Discord</span>
             </a>
             <a
-              href="https://www.instagram.com/nexzgenofficial"
+              href="https://www.youtube.com/@nexzgenstudio"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
@@ -123,7 +123,7 @@ const Footer = () => {
               <span className="text-[15px] ml-[6px]">YouTube</span>
             </a>
             <a
-              href="https://twitter.com/nexzgenofficial"
+              href="https://wa.me/message/JGNQ5LCCMIPCK1"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
@@ -132,7 +132,7 @@ const Footer = () => {
               <span className="text-[15px] ml-[6px]">WhatsApp</span>
             </a>
             <a
-              href="https://www.linkedin.com/in/nexzgen"
+              href="https://t.me/nexzgen"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
@@ -144,7 +144,7 @@ const Footer = () => {
           <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
             <div className="font-bold text-[16px]">Social Media</div>
             <a
-              href="https://www.linkedin.com/in/nexzgen"
+              href="https://www.linkedin.com/company/nexzgenstudio"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"

@@ -1,0 +1,71 @@
+/* CSS for Directors section */
+@media (min-width: 1024px) {
+  /* Styles for large screens (greater than or equal to 1024px) */
+  .about-section {
+    display: flex;
+    justify-content: center;
+  }
+  .about-content {
+    flex: 1; /* Take up remaining space */
+    max-width: 1400px; /* Limit width for better readability */
+  }
+  .about-image {
+    margin-right: 2rem; /* Add margin between image and text */
+  }
+    /* Styles for large screens (greater than or equal to 1024px) */
+    .vision-mission-section {
+      display: flex;
+      justify-content: center;
+    }
+    .vision-mission-content {
+      flex: 1; /* Take up remaining space */
+      max-width: 100px; /* Limit width for better readability */
+    }
+  }
+
+@media (max-width: 1023px) {
+  /* Styles for screens smaller than 1024px */
+  .about-section {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+  .about-content {
+    max-width: 80%; /* Adjust the maximum width of the content */
+    text-align: center; /* Center the text */
+  }
+  .vision-mission-section {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+  .vision-mission-content {
+    max-width: 80%; /* Adjust the maximum width of the content */
+    text-align: center; /* Center the text */
+  }
+}
+
+
+.director-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .director-card {
+    width: calc(50% - 20px);
+    margin-bottom: 20px;
+  }
+  
+  .director-content {
+    margin-left: 20px;
+  }
+  
+  .director-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .director-card {
+      width: 100%;
+    }
+  }
