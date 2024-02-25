@@ -76,7 +76,7 @@ const Jobs = () => {
   ]);
 
  // Calculate the count of jobs for the selected tab
-const jobCounts: { [key: string]: number } = jobs.reduce((acc, job) => {
+ const jobCounts: { [key: string]: number } = jobs.reduce((acc: { [key: string]: number }, job) => {
     acc[job.type] = (acc[job.type] || 0) + 1;
     acc["All"] = (acc["All"] || 0) + 1;
     return acc;
