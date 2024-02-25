@@ -70,14 +70,14 @@ const Projects = () => {
       tag: ["All", "Animation"],
     },
     {
-      src: "/zexate.png",
+      src: "/Zexate.png",
       title: "3D Zexate",
       description: "By creating a compelling and informative 3D model of Zexate, we aim to foster greater understanding, appreciation, and adoption of this groundbreaking medicine, ultimately improving healthcare outcomes and quality of life for individuals worldwide.",
       
       tag: ["All", "Animation"],
     },
     {
-      src: "/endotrachealtube.png",
+      src: "/EndotrachealTube.png",
       title: "3D Endotracheal Tube",
       description: "3D Donut Oreo is a visually delectable 3D modeling project crafted using the powerful Blender software. This artful project takes a delicious spin on the classic donut and Oreo cookie. ",
       
