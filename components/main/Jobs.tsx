@@ -27,9 +27,11 @@ const Jobs = () => {
     {
         title: "Augmented Reality (AR) Developer",
         type: "Engineering",
+        linkedinUrl:"https://www.linkedin.com/hiring/jobs/3832653540/detail/"
+
       },
     {
-      title: "Frontend Developer (NextJS & React)",
+      title: "Fullstack Developer (Next.js)",
       type: "Engineering",
     },
     {
@@ -102,6 +104,7 @@ const Jobs = () => {
               key={index}
               title={job.title}
               type={job.type}
+              linkedinUrl={job.linkedinUrl}
             />
           ))}
       </div>

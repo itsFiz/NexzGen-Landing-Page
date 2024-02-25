@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
-import "./about.css"; // Import the CSS file
+import "./About.css"; // Import the CSS file
 
 const TAB_DATA = [
   {
