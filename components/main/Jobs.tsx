@@ -2,6 +2,11 @@
 import React, { useState } from "react";
 import JobCard from "../sub/JobCard"; // Assuming you have a JobCard component for displaying job details
 
+interface ProjectTagProps {
+    name: string;
+    onClick: (name: string) => void;
+    isSelected: boolean;
+  }
 // Define the ProjectTag component
 const ProjectTag: React.FC<ProjectTagProps> = ({ name, onClick, isSelected, count }) => {
   const buttonStyles = isSelected
