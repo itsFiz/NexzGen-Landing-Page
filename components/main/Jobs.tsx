@@ -85,7 +85,7 @@ const Jobs = () => {
   const tabs = ["All", "Engineering", "Creative", "Business", "Human Resource", "Finance"];
 
   return (
-    <div className="flex flex-col items-center justify-center z-[20]">
+    <div className="flex flex-col items-center justify-center z-[20]" id="career">
       <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-50 py-20">
         Internship Opportunities
       </h1>
