@@ -87,115 +87,111 @@ const directorsData = [
 ];
 
 const About = () => {
-  const [tab, setTab] = useState("about");
-
-  return (
-    <section className="text-white z-[20]  pt-20 pb-40 " id="about" >
-        
-      <div className="flex justify-center mt-8 px-4 xl:px-16">
-        {TAB_DATA.map((tabData) => (
-          <TabButton
-            key={tabData.id}
-            selectTab={() => setTab(tabData.id)}
-            active={tab === tabData.id}
-          >
-            {tabData.title}
-          </TabButton>
-        ))}
-      </div>
-      <div className="py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 sm:ml-0 sm:mr-0 md:ml-60 md:mr-60 lg:ml-60 lg:mr-60">
-  <h2 className="text-4xl font-bold transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-4">
-    {tab === "about"
-      ? "About "
-      : tab === "visionmission"
-      ? "Vision & Mission"
-      : "Directors"}
-  </h2>
-  <div className="mt-8">
-  {tab === "about" && (
-  <div className="about-section">
-    <div className="about-image mr-8 mb-8 lg:mb-0">
-      <Image src="/nexzgenstudio.png" width={300} height={300} alt={"nexzgen"} />
-    </div>
-    <div className="about-content">
-      <p className="text-base lg:text-lg mb-10">
-        NexzGen Studio specializes in a unique blend of creative and
-        technological domains, including Augmented Reality (AR), Game
-        Development, Full-stack Solutions, and Animation. These niches
-        form the pillars of our expertise, allowing us to craft immersive
-        experiences and innovative solutions for a diverse range of
-        industries. As a dynamic hub of innovation, we seamlessly
-        integrate cutting-edge technology with artistic expression,
-        creating solutions that transcend boundaries.
-      </p>
-      <h3 className="text-2xl font-bold text-white">Ikigai Empowerment</h3>
-      <p className="text-base lg:text-lg">
-        Our commitment to Ikigai goes beyond a concept; it's a guiding
-        principle in everything we do. We empower individuals to
-        discover their Ikigai, providing a nurturing environment where
-        skills are honed, passions are explored, and meaningful
-        contributions are made. From team members to clients and
-        community members, we believe in creating a collective force for
-        positive change and innovation.
-      </p>
-    </div>
-  </div>
-)}
-    {tab === "visionmission" && (
-      <div>
-        <h3 className="text-2xl font-bold text-white ">Vision</h3>
-        <p className="text-base lg:text-lg">
-          Our vision is to be a catalyst for personal and professional
-          fulfillment, where individuals discover their Ikigai – the sweet spot
-          at the intersection of what they are good at, what they love, what
-          they can be paid for, and what the world needs. We envision a world
-          where every team member, client, and community member finds purpose
-          and passion in their endeavors, creating a collective force for
-          positive change and innovation.
-        </p>
-        <h3 className="text-2xl font-bold text-white mt-8">Mission</h3>
-        <p className="text-base lg:text-lg">
-          Our mission is to push the boundaries of what is possible in
-          animation, augmented reality, game development, and full-stack
-          solutions. Our commitment is to empower individuals, businesses, and
-          communities by delivering cutting-edge products and services that not
-          only meet but exceed expectations. Through a relentless pursuit of
-          excellence, we aim to inspire and cultivate a culture of continuous
-          learning and growth. At the core of our mission is the belief that
-          every project we undertake contributes to a world where purpose,
-          passion, and positive change converge, creating a lasting impact on
-          individuals and society as a whole.
-        </p>
-      </div>
-    )}
-    {tab === "directors" && (
-  <div className="director-container">
-  {directorsData.map((director, index) => (
-    <div key={index} className="director-card">
-      <div className="director-image">
-        <Image src={director.image} width={200} height={200} alt={"director"} />
-      </div>
-      <div className="director-content">
-        <h3 className="text-lg md:text-xl font-semibold text-white mt-3">{director.name}</h3>
-        <p className="text-sm md:text-base text-gray-300 italic">{director.role}</p>
-        <p className="text-sm md:text-base text-gray-300">{director.description}</p>
-        <ul className="text-sm md:text-base text-gray-300 list-disc mb-20 pl-4">
-          {director.qualifications.map((qualification, index) => (
-            <li key={index}>{qualification}</li>
+    const [tab, setTab] = useState("about");
+  
+    return (
+      <section className="text-white z-[20]  pt-20 pb-40 " id="about">
+        <div className="flex justify-center mt-8 px-4 xl:px-16">
+          {TAB_DATA.map((tabData) => (
+            <TabButton
+              key={tabData.id}
+              selectTab={() => setTab(tabData.id)}
+              active={tab === tabData.id}
+            >
+              {tabData.title}
+            </TabButton>
           ))}
-        </ul>
-      </div>
-    </div>
-  ))}
-</div>
-
-)}
-  </div>
-</div>
-        
-      
-    </section>
-  );
-};
-
-export default About;
+        </div>
+        <div className="py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 sm:ml-0 sm:mr-0 md:ml-60 md:mr-60 lg:ml-60 lg:mr-60">
+          <h2 className="text-4xl font-bold transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-4">
+            {tab === "about"
+              ? "About "
+              : tab === "visionmission"
+              ? "Vision & Mission"
+              : "Directors"}
+          </h2>
+          <div className="mt-8">
+            {tab === "about" && (
+              <div className="about-section">
+                <div className="about-image mr-8 mb-8 lg:mb-0">
+                  <Image src="/nexzgenstudio.png" width={300} height={300} alt={"nexzgen"} />
+                </div>
+                <div className="about-content">
+                  <p className="text-base lg:text-lg mb-10">
+                    NexzGen Studio specializes in a unique blend of creative and
+                    technological domains, including Augmented Reality (AR), Game
+                    Development, Full-stack Solutions, and Animation. These niches
+                    form the pillars of our expertise, allowing us to craft immersive
+                    experiences and innovative solutions for a diverse range of
+                    industries. As a dynamic hub of innovation, we seamlessly
+                    integrate cutting-edge technology with artistic expression,
+                    creating solutions that transcend boundaries.
+                  </p>
+                  <h3 className="text-2xl font-bold text-white">Ikigai Empowerment</h3>
+                  <p className="text-base lg:text-lg">
+                    Our commitment to Ikigai goes beyond a concept; it&apos;s a guiding
+                    principle in everything we do. We empower individuals to
+                    discover their Ikigai, providing a nurturing environment where
+                    skills are honed, passions are explored, and meaningful
+                    contributions are made. From team members to clients and
+                    community members, we believe in creating a collective force for
+                    positive change and innovation.
+                  </p>
+                </div>
+              </div>
+            )}
+            {tab === "visionmission" && (
+              <div>
+                <h3 className="text-2xl font-bold text-white ">Vision</h3>
+                <p className="text-base lg:text-lg">
+                  Our vision is to be a catalyst for personal and professional
+                  fulfillment, where individuals discover their Ikigai – the sweet spot
+                  at the intersection of what they are good at, what they love, what
+                  they can be paid for, and what the world needs. We envision a world
+                  where every team member, client, and community member finds purpose
+                  and passion in their endeavors, creating a collective force for
+                  positive change and innovation.
+                </p>
+                <h3 className="text-2xl font-bold text-white mt-8">Mission</h3>
+                <p className="text-base lg:text-lg">
+                  Our mission is to push the boundaries of what is possible in
+                  animation, augmented reality, game development, and full-stack
+                  solutions. Our commitment is to empower individuals, businesses, and
+                  communities by delivering cutting-edge products and services that not
+                  only meet but exceed expectations. Through a relentless pursuit of
+                  excellence, we aim to inspire and cultivate a culture of continuous
+                  learning and growth. At the core of our mission is the belief that
+                  every project we undertake contributes to a world where purpose,
+                  passion, and positive change converge, creating a lasting impact on
+                  individuals and society as a whole.
+                </p>
+              </div>
+            )}
+            {tab === "directors" && (
+              <div className="director-container">
+                {directorsData.map((director, index) => (
+                  <div key={index} className="director-card">
+                    <div className="director-image">
+                      <Image src={director.image} width={200} height={200} alt={"director"} />
+                    </div>
+                    <div className="director-content">
+                      <h3 className="text-lg md:text-xl font-semibold text-white mt-3">{director.name}</h3>
+                      <p className="text-sm md:text-base text-gray-300 italic">{director.role}</p>
+                      <p className="text-sm md:text-base text-gray-300">{director.description}</p>
+                      <ul className="text-sm md:text-base text-gray-300 list-disc mb-20 pl-4">
+                        {director.qualifications.map((qualification, index) => (
+                          <li key={index}>{qualification}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  };
+  
+  export default About;
