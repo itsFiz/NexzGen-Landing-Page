@@ -27,7 +27,7 @@ const images = [
     alt: "Perkeso",
   },
 
-
+ 
   {
     url: "/litera.png",
     alt: "LiteraLearn",

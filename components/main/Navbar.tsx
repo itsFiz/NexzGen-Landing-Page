@@ -110,7 +110,7 @@ const Navbar = () => {
               Home
             </a>
             <a
-              href="#home"
+              href="#about"
               className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
             >
               About Us
@@ -122,8 +122,6 @@ const Navbar = () => {
               Services
             </a>
             
-            
-            
             <a
               href="#product"
               className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2"
@@ -131,7 +129,7 @@ const Navbar = () => {
               Work
             </a>
             <a
-              href="#footer"
+              href="#career"
               className="font-semibold block py-2 px-4 text-gray-200 hover:text-#8E2DE2 "
             >
               Career
