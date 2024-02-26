@@ -88,6 +88,12 @@ const Jobs = () => {
       linkedinUrl: "https://wa.link/119fnj"
 
     },
+    {
+      title: "Business Analyst",
+      type: "Business",
+    linkedinUrl: "https://wa.link/119fnj"
+
+  },
   ]);
 
  // Calculate the count of jobs for the selected tab

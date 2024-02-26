@@ -29,6 +29,8 @@ const HeroContent = () => {
               sequence={[
                 "Web Development",
                 1000,
+                "Game Development",
+                1000,
                 "Augmented Reality",
                 1000,
                 "Animation",

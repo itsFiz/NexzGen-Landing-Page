@@ -16,7 +16,7 @@ const JobCard: React.FC<JobCardProps> = ({ title, type, linkedinUrl }) => {
   return (
     <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" onClick={handleClick}>
       <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] group transition-all duration-500 hover:bg-opacity-10 cursor-pointer">
-        <div className="p-4 ml-5 mr-40">
+        <div className="p-4 ml-2 mr-2 md:mr-40"> {/* Adjusted margin for smaller screens */}
           <h3 className="text-xl font-semibold text-white">{title}</h3>
           <p className="mt-2 text-gray-300"> {type}</p>
         </div>
