@@ -80,7 +80,7 @@ const Projects = () => {
     {
       src: "/EndotrachealTube.png",
       title: "3D Endotracheal Tube",
-      description: "3D Donut Oreo is a visually delectable 3D modeling project crafted using the powerful Blender software. This artful project takes a delicious spin on the classic donut and Oreo cookie. ",
+      description: "The endotracheal tube is a vital medical device used in emergency medicine, anesthesia, and intensive care to establish and maintain an airway. This 3D model will serve multiple purposes, including medical education, simulation training, and visualization in medical animations and virtual reality environments.",
       
       tag: ["All", "Animation"],
     },
