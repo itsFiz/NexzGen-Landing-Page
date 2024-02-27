@@ -153,7 +153,7 @@ const Footer = () => {
               <span className="text-[15px] ml-[6px]">LinkedIn</span>
             </a>
             <a
-              href="https://www.instagram.com/nexzgenofficial"
+              href="https://www.instagram.com/nexzgenstudio"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
@@ -162,7 +162,7 @@ const Footer = () => {
               <span className="text-[15px] ml-[6px]">Instagram</span>
             </a>
             <a
-              href="https://www.instagram.com/nexzgenofficial"
+              href="https://www.facebook.com/profile.php?id=61556648944759"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
@@ -171,7 +171,7 @@ const Footer = () => {
               <span className="text-[15px] ml-[6px]">Facebook</span>
             </a>
             <a
-              href="https://twitter.com/nexzgenofficial"
+              href="https://twitter.com/NexzGenStudio"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
