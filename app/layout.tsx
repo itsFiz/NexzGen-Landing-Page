@@ -7,8 +7,9 @@ import Footer from "@/components/main/Footer";
 import ContactForm from "@/components/main/ContactForm";
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   title: "NexzGen | Your Gateway to Cutting-Edge Solutions",
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Analytics/>
+        <SpeedInsights />
         <Footer />
         
       </body>
