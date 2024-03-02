@@ -54,7 +54,7 @@ const Footer = () => {
               href="https://drive.google.com/file/d/1zk9Ng9zKidp0BO4IseF_Ii17RXPWM0Zn/view?usp=sharing" target="blank"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
             >
-              NexzGen Studio Sdn Bhd
+              NexzGen Studio 
             </a>
             <a
               href="https://wa.me/message/JGNQ5LCCMIPCK1" target="blank"
