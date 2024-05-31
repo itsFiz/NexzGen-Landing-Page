@@ -60,7 +60,7 @@ const Footer = () => {
               href="https://wa.me/message/JGNQ5LCCMIPCK1" target="blank"
               className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
             >
-              +60 19-8481727
+              +60 11-2101 8682
             </a>
             <a
               href="mailto:info@nexzgen.com"

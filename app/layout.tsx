@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "NexzGen | Your Gateway to Cutting-Edge Solutions",
   description: "NexzGen Studio is a dynamic hub of innovation, specializing in animation, augmented reality (AR), game development, and full-stack development. We blend cutting-edge technology with artistic expression to create immersive experiences that transcend boundaries.",
-  icons: "nexzgennn.png",
+  icons: 'nexzgen.png'
   
 };
 

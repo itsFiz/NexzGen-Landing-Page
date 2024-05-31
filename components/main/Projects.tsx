@@ -33,6 +33,13 @@ const Projects = () => {
       tag: ["All", "AR"],
     },
     {
+      src: "/AirlabSubang.png",
+      title: "Airlab Subang Landing Page",
+      description: "Airlab Subang (ALS) is an aviation school that produces skillful personnel by providing an enriching Aircraft Maintenance training program that fulfils both local & international requirements.",
+      
+      tag: ["All", "Web"],
+    },
+    {
       src: "/reactpokedexfinale.png",
       title: "React Pokédex",
       description: "A dynamic and interactive web application built with React.js. This project serves as a comprehensive Pokédex, allowing users to browse through a rich collection of Pokémon, view their details, and stay updated on the latest information.",
@@ -55,7 +62,13 @@ const Projects = () => {
       previewUrl: "https://xd.adobe.com/view/dfd74d8e-99b2-497e-9184-ccc7c11577be-8a84/",
       tag: ["All", "Web"],
     },
-  
+    {
+      src: "/dragonball.png",
+      title: "DragonBall Tribute ",
+      description: "A tribute or reference to the popular anime series Dragon Ball. It depicts one of the main characters, likely Goku, in a distinctive fighting stance while wearing his iconic orange martial arts gi outfit. The animation style captures the vibrant colors and slightly exaggerated proportions typical of anime from that era. The character is shown on a road or path, with swirling clouds or energy effects in shades of blue and green creating a dynamic, high-energy background reminiscent of the intense battles and ki attacks featured in Dragon Ball.",
+      previewUrl: "https://www.facebook.com/reel/10221196738382518",
+      tag: ["All", "Animation"],
+    },
     {
       src: "/pendekarjahat.jpg",
       title: "Pendekar Jahat",
@@ -84,6 +97,7 @@ const Projects = () => {
       
       tag: ["All", "Animation"],
     },
+    
     
   ];
 

@@ -51,7 +51,7 @@ const directorsData = [
     role: "Co-founder | Chief Operations Officer",
     description: "Strategist and implementer with a track record of optimizing processes and ensuring seamless business operations.",
     qualifications: [
-      "Former Talent Acquisition at Tan Chong Group, extensive experience in sourcing, recruiting, and retaining top talent.",
+      
       "Human Resource Management Graduate from Universiti Poly-Tech Malaysia",
       "Skilled in project management, team leadership, and organizational development, with a focus on fostering a collaborative and high-performance work culture."
 
