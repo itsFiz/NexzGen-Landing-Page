@@ -16,5 +16,5 @@ export default function ProductsPage() {
     <ProductsContent  />
     </div>
   </div>
-</main>;;
+</main>;
 }
