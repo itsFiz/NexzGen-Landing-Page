@@ -14,7 +14,7 @@ const TAB_DATA = [
     id: "visionmission",
   },
   {
-    title: "Directors",
+    title: "Founding Team",
     id: "directors",
   },
 ];
@@ -22,7 +22,7 @@ const TAB_DATA = [
 const directorsData = [
   {
     name: "Hafiz Kadir",
-    role: "Founder | Chief Executive Officer",
+    role: "Founder | CEO & CTO",
     description: "Visionary technologist with a knack for staying ahead, driving the company's technological endeavors with a forward-thinking approach.",
     qualifications: [
       "Graduate Technologist certified by MBOT",
@@ -35,7 +35,7 @@ const directorsData = [
   },
   {
     name: "Andi A Ghani",
-    role: "Co-founder | Chief Creative Officer",
+    role: "Co-founder | CCO",
     description: "A decade director turning concepts into captivating visual masterpieces, guiding the artistic direction of our content and experiences.",
     qualifications: [
       "Animation Director at Wau Animation (Ejen Ali) with 10+ years of experience",
@@ -48,7 +48,7 @@ const directorsData = [
   },
   {
     name: "Putera Shazmin",
-    role: "Co-founder | Chief Operations Officer",
+    role: "Co-founder | COO",
     description: "Strategist and implementer with a track record of optimizing processes and ensuring seamless business operations.",
     qualifications: [
       
@@ -61,7 +61,7 @@ const directorsData = [
   },
   {
     name: "Tengku Amirul Haiqal",
-    role: "Co-founder | Chief Game Officer",
+    role: "Co-founder | CIO",
     description: "A creative mind shaping interactive experiences, bringing gaming concepts to life with a passion for innovation.",
     qualifications: [
       "Solo game designer and developer of 'Stigma Birth', a 2D story-based platform game released in Google Play Store",
@@ -73,7 +73,7 @@ const directorsData = [
   },
   {
     name: "Aliff Farhat",
-    role: "Co-founder | Chief Marketing Officer",
+    role: "Co-founder | CMO",
     description: "Marketer extraordinaire transforming ideas into compelling narratives, shaping the company's image and connecting with audiences.",
     qualifications: [
       "Founder of Farhat Fotografi, Freelance photographer with 5+ years of experience",
@@ -118,14 +118,12 @@ const About = () => {
                 </div>
                 <div className="about-content">
                   <p className="text-base lg:text-lg mb-10">
-                    NexzGen Studio specializes in a unique blend of creative and
-                    technological domains, including Augmented Reality (AR), Game
-                    Development, Full-stack Solutions, and Animation. These niches
-                    form the pillars of our expertise, allowing us to craft immersive
-                    experiences and innovative solutions for a diverse range of
-                    industries. As a dynamic hub of innovation, we seamlessly
-                    integrate cutting-edge technology with artistic expression,
-                    creating solutions that transcend boundaries.
+                  NexzGen Studio is an innovative startup, officially registered on February 24, 2024, dedicated to empowering individuals and communities through AI-driven EdTech solutions and advanced SaaS platforms. In our flaghsip product, CareerRPG, NexzGen tackles the pressing issues of career dissatisfaction and burnout head-on by gamifying career exploration and professional development, offering a fresh and engaging approach to personal growth.
+
+
+
+In addition to our flagship product, NexzGen offers web development services for business landing pages and custom Unity e-learning mobile apps for the Android platform. These services drive our revenue, enabling us to sustain research, development, and operational costs for our ventures, ensuring its continuous improvement and growth.
+
                   </p>
                   <h3 className="text-2xl font-bold text-white">Ikigai Empowerment</h3>
                   <p className="text-base lg:text-lg">

@@ -3,90 +3,196 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { Card } from "../sub/Card";
 
 const images = [
-  
-
   {
     url: "/rtm.png",
     alt: "RTM",
+    description: "Radio Television Malaysia"
   },
-
   {
     url: "/MCMC_Logo.png",
     alt: "MCMC",
+    description: "Malaysian Communications and Multimedia Commission"
   },
-
   {
     url: "/mdec.webp",
     alt: "MDEC",
+    description: "Malaysia Digital Economy Corporation"
   },
-
   {
     url: "/perkeso.png",
     alt: "Perkeso",
+    description: "Social Security Organisation"
   },
-
- 
   {
     url: "/litera.png",
     alt: "LiteraLearn",
+    description: "Educational Technology Partner"
   },
-
+  {
+    url: "/klinikiris.png",
+    alt: "KlinikPergigianIris",
+    description: "Klinik Pergigian Iris"
+  },
+  {
+    url: "/ppim.png",
+    alt: "KlinikPergigianIris",
+    description: "Klinik Pergigian Iris"
+  },
+  {
+    url: "/upm.png",
+    alt: "KlinikPergigianIris",
+    description: "Klinik Pergigian Iris"
+  },
+  {
+    url: "/pharmaniaga.png",
+    alt: "KlinikPergigianIris",
+    description: "Klinik Pergigian Iris"
+  },
+  {
+    url: "/as.png",
+    alt: "KlinikPergigianIris",
+    description: "Klinik Pergigian Iris"
+  },
+  {
+    url: "/srk.png",
+    alt: "KlinikPergigianIris",
+    description: "Klinik Pergigian Iris"
+  }
 ];
 
+
 const Clients = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 800);
+    if (!autoplayEnabled) return;
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 3000); // Slower rotation for better visibility
+
+    return () => clearInterval(interval);
+  }, [autoplayEnabled]);
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+    hover: { scale: 1.05, transition: { duration: 0.2 } }
+  };
 
   return (
-    <div className="text-center px-4"> {/* Add padding to the sides */}
-      <div
-        className="text-3xl font-bold mt-20 bg-clip-text bg-gradient-to-r from-purple-500 to-purple-50 text-transparent"
+    <section className="py-16 bg-gradient-to-b from-transparent to-black/5">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="container mx-auto px-4"
       >
-        Clients & Collaborators
-      </div>
+        <div className="text-center mb-12">
+          <motion.h2 
+            className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-500"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Trusted By Industry Leaders
+          </motion.h2>
+          <motion.p
+            className="text-gray-600 mt-4 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            Partnering with leading organizations to drive innovation in education and technology
+          </motion.p>
+        </div>
 
-      <div className="flex justify-center items-center p-4 md:flex gap-4 flex-wrap"> {/* Add gap between images */}
-        <AnimatePresence custom={currentImageIndex}>
-          {images.map((image, index) => (
-            <motion.div
+        <div className="relative">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center">
+            {images.map((image, index) => (
+              <motion.div
+                key={image.alt}
+                className="relative group"
+                variants={itemVariants}
+                whileHover="hover"
+                onHoverStart={() => {
+                  setIsHovered(true);
+                  setAutoplayEnabled(false);
+                  setActiveIndex(index);
+                }}
+                onHoverEnd={() => {
+                  setIsHovered(false);
+                  setAutoplayEnabled(true);
+                }}
+              >
+                <Card className="p-4 w-40 h-40 flex items-center justify-center relative overflow-hidden group">
+                  <motion.div
+                    animate={{
+                      scale: activeIndex === index ? 1 : 0.9,
+                      opacity: activeIndex === index ? 1 : 0.7
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src={image.url}
+                      alt={image.alt}
+                      width={120}
+                      height={120}
+                      className="object-contain transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </motion.div>
+                  
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    <p className="text-white text-xs text-center">
+                      {image.description}
+                    </p>
+                  </motion.div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center mt-8 gap-2">
+          {images.map((_, index) => (
+            <motion.button
               key={index}
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: index === currentImageIndex ? 1 : 0.8,
-                scale: index === currentImageIndex ? 0.8 : 0.6,
+              className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                activeIndex === index ? 'bg-blue-500' : 'bg-gray-300'
+              }`}
+              onClick={() => {
+                setActiveIndex(index);
+                setAutoplayEnabled(false);
+                setTimeout(() => setAutoplayEnabled(true), 5000);
               }}
-              className="flex items-center justify-center h-40 w-40 md:w-1/4"
-              exit={{ opacity: 0 }}
-              custom={index}
-              transition={{
-                opacity: { duration: 0.5 },
-              }}
-            >
-              <Image
-                src={image.url}
-                alt={image.alt}
-                width={150} // Adjust width as needed
-                height={150} // Adjust height as needed
-                className="object-contain h-full w-full"
-              />
-            </motion.div>
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            />
           ))}
-        </AnimatePresence>
-      </div>
-    </div>
+        </div>
+      </motion.div>
+    </section>
   );
 };
 
