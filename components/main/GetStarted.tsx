@@ -86,7 +86,7 @@ const timelines = [
   '6+ months'
 ];
 
-export default function GetStarted() {
+export default function getstarted() {
   const [step, setStep] = useState(1);
   const [selectedService, setSelectedService] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
