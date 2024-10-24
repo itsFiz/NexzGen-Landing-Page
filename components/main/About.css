@@ -1,5 +1,7 @@
 /* CSS for Directors section */
+
 @media (min-width: 1024px) {
+  
   /* Styles for large screens (greater than or equal to 1024px) */
   .about-section {
     display: flex;

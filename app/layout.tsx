@@ -8,6 +8,7 @@ import ContactForm from "@/components/main/ContactForm";
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { NavigationProvider } from '@/components/sub/NavigationProvider';
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -30,6 +31,7 @@ export default function RootLayout({
       >
         <StarsCanvas />
         <Navbar />
+        <NavigationProvider/>
         {children}
         <Analytics/>
         <SpeedInsights />

@@ -27,11 +27,11 @@ const HeroContent = () => {
           <h1 className="Welcome-text text-[13px]">
           <TypeAnimation
               sequence={[
-                "Web Development",
+                "Digital Transformation",
                 1000,
-                "Game Development",
+                "Extended Reality",
                 1000,
-                "Augmented Reality",
+                "Digital Marketing",
                 1000,
                 "Animation",
                 1000,

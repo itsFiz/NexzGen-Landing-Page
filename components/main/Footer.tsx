@@ -1,193 +1,139 @@
 'use client'
 import React from "react";
-import {
-  RxDiscordLogo,
-  RxGithubLogo,
-  RxInstagramLogo,
-  RxTwitterLogo,
-  RxLinkedinLogo,
+import Image from "next/image";
+import { RxLinkedinLogo } from "react-icons/rx";
+import { FaDiscord, FaFacebook, FaInstagram, FaTelegram, FaTwitter, FaWhatsapp, FaYoutube } from "react-icons/fa";
 
-} from "react-icons/rx";
-
-import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
-
-import { FaDiscord, FaFacebook, FaInstagram, FaTelegram, FaTwitter, FaWhatsapp, FaYoutube} from "react-icons/fa";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const currentYear = new Date().getFullYear();
+
 const Footer = () => {
   return (
-    <section
-      id="footer"
-      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden  mt-40 relative z-[20] "
-      style={{ transform: "scale(0.9" }}
+    <footer
+      className=" relative z-10 flex flex-col items-center justify-center  backdrop-blur-md mt-auto bg-transparent"
     >
-    <div className="w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px] relative z-[20]">
-      <div className="w-full flex flex-col items-center justify-center m-auto">
-        <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
-          <div className="items-stretch flex max-w-[383px]  flex-col ">
-            <div className="items-stretch flex justify-between gap-1 px-20">
-              <img
-                loading="lazy"
-                srcSet="https://i.imgur.com/GvgmDPf.png"
-                className="aspect-[0.44] object-contain object-center w-[100px] overflow-hidden shrink-0 max-w-full"
-              />
-              <div className="text-white text-2xl self-center grow shrink basis-auto my-auto">
-                <span className="font-bold ml-[10px] hidden md:block text-gray-300 ">
-                  NexzGen 
+      <div className="w-full max-w-[1400px] text-gray-200 p-4 md:p-8">
+        <div className="w-full flex flex-col items-center justify-center">
+          {/* Main Footer Content */}
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
+            {/* Logo Section */}
+            <div className="flex flex-col items-center lg:items-start col-span-1 lg:col-span-1">
+              <div className="flex items-center gap-2">
+                <Image
+                  loading="lazy"
+                  src="https://i.imgur.com/GvgmDPf.png"
+                  className="w-[60px] h-auto object-contain"
+                  alt="NexzGen Logo"
+                />
+                <span className="font-bold text-xl text-gray-300 hidden md:block">
+                  NexzGen
                 </span>
               </div>
             </div>
-          </div>
-          <style jsx>{`
-            .footer-link {
-              color: #718096; /* Initial color: gray-800 */
-              transition: color 0.3s ease; /* Smooth transition */
-            }
 
-            .footer-link:hover {
-              color: #8E2DE2 !important; /* Hover color: white */
-            }
-          `}</style>
-          <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-            <div className="font-bold text-[16px]">About</div>
-            <a
-              href="https://drive.google.com/file/d/1zk9Ng9zKidp0BO4IseF_Ii17RXPWM0Zn/view?usp=sharing" target="blank"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-            >
-              NexzGen Studio 
-            </a>
-            <a
-              href="https://wa.me/message/JGNQ5LCCMIPCK1" target="blank"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-            >
-              +60 11-2101 8682
-            </a>
-            <a
-              href="mailto:info@nexzgen.com"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-            >
-              info@nexzgen.com
-            </a>
-            <a
-              href="#learning-about-me"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-            >
-              51200, Kuala Lumpur, Malaysia{" "}
-            </a>
+        
+
+            {/* About Section */}
+            <div className=" flex flex-col items-center lg:items-start space-y-4">
+              <h3 className="font-bold text-base">About</h3>
+              <div className="flex flex-col items-center lg:items-start space-y-3">
+                <a href="https://drive.google.com/file/d/1Obni8cbmoY0tUeNBv7On7ue5JP92Erk1/view?usp=sharing" 
+                   target="_blank" 
+                   className="footer-link text-sm text-center lg:text-left">
+                  NexzGen Studio 202403051936 (003579929-K)
+                </a>
+                <a href="https://wa.link/wgcd4s" 
+                   target="_blank" 
+                   className="footer-link text-sm">
+                  +60 11-1302 5474
+                </a>
+                <a href="mailto:info@nexzgen.com" 
+                   className="footer-link text-sm">
+                  info@nexzgen.com
+                </a>
+                <p className="footer-link text-sm text-center lg:text-left">
+                  Level 9, Integra Tower, Jalan Tun Razak, 50400, Kuala Lumpur, Malaysia
+                </p>
+              </div>
+            </div>
+
+            {/* Services Section */}
+            <div className="flex flex-col items-center lg:items-start space-y-4">
+              <h3 className="font-bold text-base">Services</h3>
+              <div className="flex flex-col items-center lg:items-start space-y-3">
+                <a href="#services" className="footer-link text-sm">Web & Mobile App Development</a>
+                <a href="#services" className="footer-link text-sm">Augmented Reality</a>
+                <a href="#services" className="footer-link text-sm">UI/UX Design</a>
+                <a href="#services" className="footer-link text-sm">Social Media Marketing</a>
+              </div>
+            </div>
+
+            {/* Community Section */}
+            <div className="flex flex-col items-center lg:items-start space-y-4">
+              <h3 className="font-bold text-base">Community</h3>
+              <div className="flex flex-col items-center lg:items-start space-y-3">
+                {[
+                  { icon: <FaDiscord />, name: 'Discord', link: 'https://discord.gg/e7q4NkBr7e' },
+                  { icon: <FaYoutube />, name: 'YouTube', link: 'https://www.youtube.com/@nexzgenstudio' },
+                  { icon: <FaWhatsapp />, name: 'WhatsApp', link: 'https://wa.link/wgcd4s' },
+                  { icon: <FaTelegram />, name: 'Telegram', link: 'https://t.me/nexzgen' },
+                ].map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-link flex items-center gap-2 text-sm hover:text-purple-500 transition-colors"
+                  >
+                    {item.icon}
+                    <span>{item.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Social Media Section */}
+            <div className="flex flex-col items-center lg:items-start space-y-4">
+              <h3 className="font-bold text-base">Social Media</h3>
+              <div className="flex flex-col items-center lg:items-start space-y-3">
+                {[
+                  { icon: <RxLinkedinLogo />, name: 'LinkedIn', link: 'https://www.linkedin.com/company/nexzgenstudio' },
+                  { icon: <FaInstagram />, name: 'Instagram', link: 'https://www.instagram.com/nexzgenstudio' },
+                  { icon: <FaFacebook />, name: 'Facebook', link: 'https://www.facebook.com/profile.php?id=61556648944759' },
+                  { icon: <FaTwitter />, name: 'Twitter', link: 'https://twitter.com/NexzGenStudio' },
+                ].map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-link flex items-center gap-2 text-sm hover:text-purple-500 transition-colors"
+                  >
+                    {item.icon}
+                    <span>{item.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-            <div className="font-bold text-[16px]">Services</div>
-            <a
-              href="#services"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-            >
-              Web Development
-            </a>
-            <a
-              href="#services"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-            >
-              UI/UX Design
-            </a>
-            <a
-              href="#services"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-            >
-              Animation
-            </a>
-            <a
-              href="#services"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-            >
-              Augmented Reality
-            </a>
+
+          {/* Copyright */}
+          <div className="mt-12 mb-4 text-sm text-center">
+            Copyright &copy; {currentYear} NexzGen. All rights reserved
           </div>
-          <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-            <div className="font-bold text-[16px]">Community</div>
-            <a
-              href="https://discord.gg/9TZa9Gn5"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaDiscord />
-              <span className="text-[15px] ml-[6px]">Discord</span>
-            </a>
-            <a
-              href="https://www.youtube.com/@nexzgenstudio"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaYoutube />
-              <span className="text-[15px] ml-[6px]">YouTube</span>
-            </a>
-            <a
-              href="https://wa.me/message/JGNQ5LCCMIPCK1"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaWhatsapp/>
-              <span className="text-[15px] ml-[6px]">WhatsApp</span>
-            </a>
-            <a
-              href="https://t.me/nexzgen"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTelegram />
-              <span className="text-[15px] ml-[6px]">Telegram</span>
-            </a>
-          </div>
-          <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-            <div className="font-bold text-[16px]">Social Media</div>
-            <a
-              href="https://www.linkedin.com/company/nexzgenstudio"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <RxLinkedinLogo />
-              <span className="text-[15px] ml-[6px]">LinkedIn</span>
-            </a>
-            <a
-              href="https://www.instagram.com/nexzgenstudio"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram />
-              <span className="text-[15px] ml-[6px]">Instagram</span>
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61556648944759"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook />
-              <span className="text-[15px] ml-[6px]">Facebook</span>
-            </a>
-            <a
-              href="https://twitter.com/NexzGenStudio"
-              className="footer-link flex flex-row items-center my-[15px] cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTwitter/>
-              <span className="text-[15px] ml-[6px]">Twitter</span>
-            </a>
-            
-          </div>
-        </div>
-        <div className="mb-[20px] text-[15px] text-center z-[3] mt-10">
-          Copyright &copy; {currentYear} NexzGen. All rights reserved
         </div>
       </div>
-    </div>
-    </section>
+
+      <style jsx>{`
+        .footer-link {
+          color: #718096;
+          transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+          color: #8E2DE2;
+        }
+      `}</style>
+    </footer>
   );
 };
 
