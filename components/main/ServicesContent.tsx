@@ -118,7 +118,7 @@ const categories = [
       ]
     },
     {
-      title: "Creative Services",
+      title: "Creative Production",
       icon: <GradientIcon icon={<Palette strokeWidth={1.5} className="w-6 h-6 stroke-[url(#gradient)]" />} />,
       description: "Elevate your brand with our creative expertise. Our team combines artistic vision with technical mastery to deliver stunning animations and user-centric designs that captivate and engage.",
       services: [

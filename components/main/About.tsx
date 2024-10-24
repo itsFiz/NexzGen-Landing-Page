@@ -3,14 +3,291 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion"; // Added AnimatePresence
 import TabButton from "../sub/TabButton";
 import SocialIcon from "../sub/SocialIcon";
-import { TAB_DATA, directorsData} from "@/data/aboutData";
-import { ChevronDown, Code, Palette, Smartphone, Megaphone } from 'lucide-react';
+import { TAB_DATA} from "@/data/aboutData";
+import { Code, Palette, Smartphone, Megaphone, LucideIcon } from 'lucide-react';
 import GetStartedButton from "../sub/GetStartedButton";
 import Link from "next/link";
+import { BadgeCheck, Award, Briefcase, ChevronDown, ExternalLink } from 'lucide-react';
+// Animation variants for expandable content
+interface ExpandableSectionProps {
+  title: string;
+  children: React.ReactNode;
+  icon: LucideIcon;
+  isExpanded: boolean;
+  onToggle: () => void;
+}
+const expandAnimation = {
+  hidden: { 
+    height: 0,
+    opacity: 0,
+    transition: {
+      height: { duration: 0.2 },
+      opacity: { duration: 0.2 }
+    }
+  },
+  visible: { 
+    height: "auto",
+    opacity: 1,
+    transition: {
+      height: { duration: 0.2 },
+      opacity: { duration: 0.2 }
+    }
+  }
+};
+
+// Chevron animation
+const chevronAnimation = {
+  collapsed: { rotate: 0 },
+  expanded: { rotate: 180 }
+};
+
+const directorsData = [
+  {
+    name: "Hafiz Kadir",
+    role: "Founder | CEO & CTO",
+    image: "/ceo.png",
+    description: "Visionary technologist with a knack for staying ahead, driving the company's technological endeavors with a forward-thinking approach. Experienced in both technical development and business strategy.",
+    qualifications: [
+      "Executive (System Development) at TNB Research",
+      "Graduate Technologist certified by MBOT",
+      "Former IT Associate at UOB, 3D Content Developer at Innoveam",
+      "Computer Science (Multimedia) graduate from University Putra Malaysia",
+      "Co-inventor of 'ARespiratory', a copyrighted AR app with TRL:6"
+    ],
+    skills: [
+      { 
+        category: "Technical", 
+        tags: ["AR Development", "Unity", "Web Development", "React", "Full Stack", "Mobile Apps", "3D Content"] 
+      },
+      { 
+        category: "Business", 
+        tags: ["Digital Banking", "System Development", "Project Management", "Tech Strategy"] 
+      },
+      { 
+        category: "Leadership", 
+        tags: ["Team Leadership", "Innovation Management", "Strategic Planning"] 
+      }
+    ],
+    achievements: [
+      "Developed ARespiratory platform reaching TRL:6",
+      "Led digital banking initiatives at UOB",
+      "Secured pre-seed funding of RM35,000 for NexzGen",
+      "Part of MyStartup ecosystem by MOSTI",
+      "Created 'Aphasia' as communication tool for patients"
+    ],
+    socialLinks: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Andi A Ghani",
+    role: "Co-founder | CCO",
+    image: "/cco.png",
+    description: "A seasoned animation director with over a decade of experience, transforming concepts into captivating visual masterpieces and guiding the artistic direction of major animation projects.",
+    qualifications: [
+      "Animation Director at Wau Animation (Ejen Ali)",
+      "Former Animator at Lescopaque Production",
+      "Multimedia Graduate from International University College of Technology (Twintech)",
+      "10+ years of animation industry experience"
+    ],
+    skills: [
+      { 
+        category: "Creative", 
+        tags: ["Animation Direction", "Character Animation", "Storyboarding", "Visual Development", "Creative Direction"] 
+      },
+      { 
+        category: "Technical", 
+        tags: ["Animation Software", "Motion Graphics", "Visual Effects", "Production Pipeline"] 
+      },
+      { 
+        category: "Leadership", 
+        tags: ["Team Management", "Project Direction", "Creative Team Leadership", "Production Management"] 
+      }
+    ],
+    achievements: [
+      "Directed animation for Ejen Ali, a major Malaysian animated series",
+      "Led creative teams at top animation studios",
+      "Contributed to multiple successful animation projects",
+      "Extensive experience in animation production pipelines"
+    ],
+    socialLinks: {
+      linkedin: "#",
+      behance: "#",
+      instagram: "#"
+    }
+  },
+  {
+    name: "Putera Shazmin",
+    role: "Co-founder | COO",
+    image: "/coo.png",
+    description: "Strategist and implementer with a strong background in human resource management and operational optimization, ensuring seamless business operations and talent development.",
+    qualifications: [
+      "Human Resource Management Graduate from Universiti Poly-Tech Malaysia",
+      "Former Talent Acquisition Intern at Tan Chong Group",
+      "Experienced in HR operations and talent management",
+      "Specialist in organizational development"
+    ],
+    skills: [
+      { 
+        category: "HR Management", 
+        tags: ["Talent Acquisition", "Employee Development", "HR Operations", "Performance Management"] 
+      },
+      { 
+        category: "Operations", 
+        tags: ["Process Optimization", "Strategic Planning", "Resource Management", "Policy Development"] 
+      },
+      { 
+        category: "Leadership", 
+        tags: ["Team Building", "Change Management", "Organizational Development", "Strategic HR"] 
+      }
+    ],
+    achievements: [
+      "Established NexzGen's HR framework and policies",
+      "Developed talent acquisition strategies",
+      "Implemented efficient operational processes",
+      "Created employee development programs"
+    ],
+    socialLinks: {
+      linkedin: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Aliff Farhat",
+    role: "Co-founder | CMO",
+    image: "/cmo.png",
+    description: "Marketing expert and content creator with a strong background in visual storytelling, transforming ideas into compelling narratives and building strong brand presence across platforms.",
+    qualifications: [
+      "Founder of Farhat Fotografi",
+      "Former Videographer at RareTV",
+      "Apprentice at Saiful Nang Academy Photography (SNAP)",
+      "5+ years of professional photography experience"
+    ],
+    skills: [
+      { 
+        category: "Marketing", 
+        tags: ["Content Strategy", "Brand Development", "Social Media Marketing", "Visual Storytelling"] 
+      },
+      { 
+        category: "Technical", 
+        tags: ["Photography", "Videography", "Content Creation", "Video Editing"] 
+      },
+      { 
+        category: "Digital", 
+        tags: ["Social Media Management", "TikTok Creation", "Digital Marketing", "Content Planning"] 
+      }
+    ],
+    achievements: [
+      "Built TikTok following with 300k+ views and 5k followers",
+      "Founded and grew successful photography business",
+      "Developed comprehensive marketing strategies",
+      "Created viral social media content campaigns"
+    ],
+    socialLinks: {
+      linkedin: "#",
+      instagram: "#",
+      tiktok: "#"
+    }
+  },
+  {
+    name: "Tengku Amirul Haiqal",
+    role: "Co-founder | CIO",
+    image: "/cgo.png",
+    description: "Creative game designer and developer with expertise in interactive experiences, bringing gaming concepts to life with innovative approaches to engagement and user experience.",
+    qualifications: [
+      "Game & Interactive Media Design Graduate from Widad University College",
+      "Independent Game Developer",
+      "Creator of 'Stigma Birth' mobile game",
+      "Experienced in game design and development"
+    ],
+    skills: [
+      { 
+        category: "Game Development", 
+        tags: ["Game Design", "2D Game Development", "Unity", "Mobile Game Development"] 
+      },
+      { 
+        category: "Technical", 
+        tags: ["Programming", "Interactive Design", "UI/UX Design", "Platform Development"] 
+      },
+      { 
+        category: "Creative", 
+        tags: ["Storytelling", "Level Design", "Game Mechanics", "User Experience"] 
+      }
+    ],
+    achievements: [
+      "Successfully launched 'Stigma Birth' on Google Play Store",
+      "Developed innovative game mechanics and systems",
+      "Created engaging interactive experiences",
+      "Implemented gamification strategies in various projects"
+    ],
+    socialLinks: {
+      linkedin: "#",
+      github: "#",
+      playstore: "#"
+    }
+  }
+];
+
+const ExpandableSection: React.FC<ExpandableSectionProps> = ({ 
+  title, 
+  children, 
+  icon: Icon, 
+  isExpanded, 
+  onToggle 
+}) => (
+  <div className="mt-4">
+    <button
+      onClick={onToggle}
+      className="w-full flex items-center justify-between gap-2 mb-3 group"
+    >
+      <div className="flex items-center gap-2">
+        <Icon className="w-4 h-4 text-purple-400" />
+        <h4 className="text-base sm:text-lg font-semibold text-white">
+          {title}
+        </h4>
+      </div>
+      <motion.div
+        animate={isExpanded ? "expanded" : "collapsed"}
+        variants={chevronAnimation}
+        transition={{ duration: 0.2 }}
+      >
+        <ChevronDown className="w-4 h-4 text-purple-400 group-hover:text-purple-300" />
+      </motion.div>
+    </button>
+    <AnimatePresence initial={false}>
+      {isExpanded && (
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={expandAnimation}
+          className="overflow-hidden"
+        >
+          {children}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </div>
+);
+
 
 const About = () => {
   const [tab, setTab] = useState<string>("about");
+  const [expandedSections, setExpandedSections] = useState<{
+    [key: string]: { skills: boolean; achievements: boolean }
+  }>({});
 
+  const toggleSection = (directorIndex: number, section: 'skills' | 'achievements') => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [directorIndex]: {
+        ...prev[directorIndex],
+        [section]: !prev[directorIndex]?.[section]
+      }
+    }));
+  };
   const handleTabChange = (newTab: string) => {
     setTab(newTab);
   };
@@ -78,7 +355,7 @@ const About = () => {
       ]
     },
     {
-      title: "Creative Services",
+      title: "Creative Production",
       icon: <GradientIcon icon={<Palette strokeWidth={1.5} className="w-6 h-6 stroke-[url(#gradient)]" />} />,
       description: "Elevate your brand with our creative expertise. Our team combines artistic vision with technical mastery to deliver stunning animations and user-centric designs that captivate and engage.",
       services: [
@@ -174,7 +451,7 @@ const About = () => {
         animate="visible"
         exit="exit"
         variants={contentVariants}
-        className="about-section max-w-7xl mx-auto px-4"
+        className=" about-section max-w-7xl mx-auto px-4"
       >
         {/* Top Section with Logo */}
         <div className="flex flex-col items-center text-center mb-16">
@@ -318,82 +595,132 @@ const About = () => {
     if (tab === "foundingteam") {
       return (
         <motion.div 
-          key="foundingteam"
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={contentVariants}
-          className="grid grid-cols-1 gap-4 sm:gap-8 md:grid-cols-2"
+      key="foundingteam"
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={contentVariants}
+      className="grid grid-cols-1 gap-4 sm:gap-8 md:grid-cols-2"
+    >
+      {directorsData.map((director, index) => (
+        <motion.div
+          key={index}
+          className="director-card bg-gray-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-800 hover:border-purple-500/50 transition-colors"
+          whileHover={{ scale: 1.02, translateY: -5 }}
         >
-          {directorsData.map((director, index) => (
-            <motion.div
-              key={index}
-              className="director-card bg-gray-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-800 hover:border-purple-500/50 transition-colors"
-              whileHover={{ scale: 1.02, translateY: -5 }}
-            >
-              <div className="flex flex-col gap-4">
-                {/* Header - Image and Basic Info */}
-                <div className="flex items-center gap-3">
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
-                    <Image 
-                      src={director.image}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      alt={director.name}
-                      className="rounded-lg shadow-lg"
+          <div className="flex flex-col gap-4">
+            {/* Header - Image and Basic Info */}
+            <div className="flex items-center gap-3">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
+                <Image 
+                  src={director.image}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  alt={director.name}
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
+              
+              <div className="min-w-0">
+                <h3 className="text-lg sm:text-xl font-bold text-white truncate">
+                  {director.name}
+                </h3>
+                <p className="text-sm sm:text-base text-purple-400 font-medium">
+                  {director.role}
+                </p>
+                <div className="flex gap-2 mt-2">
+                  {Object.entries(director.socialLinks).map(([platform, link]) => (
+                    <SocialIcon 
+                      key={platform} 
+                      platform={platform} 
+                      link={link}
                     />
-                  </div>
-                  
-                  <div className="min-w-0"> {/* prevent text overflow */}
-                    <h3 className="text-lg sm:text-xl font-bold text-white truncate">
-                      {director.name}
-                    </h3>
-                    <p className="text-sm sm:text-base text-purple-400 font-medium">
-                      {director.role}
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base text-gray-300">
+              {director.description}
+            </p>
+
+            {/* Background Summary */}
+            <div className="mt-2">
+              <div className="flex items-center gap-2 mb-3">
+                <Briefcase className="w-4 h-4 text-purple-400" />
+                <h4 className="text-base sm:text-lg font-semibold text-white">
+                  Background Summary
+                </h4>
+              </div>
+              <ul className="space-y-1.5 text-sm sm:text-base text-gray-300">
+                {director.qualifications.map((qualification, idx) => (
+                  <li 
+                    key={idx}
+                    className="flex items-start gap-2"
+                  >
+                    <span className="text-purple-400 mt-1 flex-shrink-0">•</span>
+                    <span className="line-clamp-2 sm:line-clamp-none">
+                      {qualification}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Skills Section - Expandable */}
+            <ExpandableSection
+              title="Skills"
+              icon={BadgeCheck}
+              isExpanded={expandedSections[index]?.skills || false}
+              onToggle={() => toggleSection(index, 'skills')}
+            >
+              <div className="space-y-4">
+                {director.skills.map((skillSet, idx) => (
+                  <div key={idx} className="mb-3">
+                    <p className="text-sm font-medium text-gray-400 mb-2">
+                      {skillSet.category}
                     </p>
-                    <div className="flex gap-2 mt-2">
-                      {Object.entries(director.socialLinks).map(([platform, link]) => (
-                        <SocialIcon 
-                          key={platform} 
-                          platform={platform} 
-                          link={link}
-                          
-                        />
+                    <div className="flex flex-wrap gap-2">
+                      {skillSet.tags.map((tag, tagIdx) => (
+                        <span
+                          key={tagIdx}
+                          className="px-2 py-1 text-xs rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 hover:bg-purple-500/30 transition-colors"
+                        >
+                          {tag}
+                        </span>
                       ))}
                     </div>
                   </div>
-                </div>
-  
-                {/* Description */}
-                <p className="text-sm sm:text-base text-gray-300 line-clamp-3 sm:line-clamp-none">
-                  {director.description}
-                </p>
-  
-                {/* Qualifications */}
-                <div className="mt-2">
-                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2">
-                    Qualifications
-                  </h4>
-                  <ul className="space-y-1.5 text-sm sm:text-base text-gray-300">
-                    {director.qualifications.map((qualification, idx) => (
-                      <li 
-                        key={idx}
-                        className="flex items-start gap-2"
-                      >
-                        <span className="text-purple-400 mt-1 flex-shrink-0">•</span>
-                        <span className="line-clamp-2 sm:line-clamp-none">
-                          {qualification}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-  
-                
+                ))}
               </div>
-            </motion.div>
-          ))}
+            </ExpandableSection>
+
+            {/* Achievements Section - Expandable */}
+            <ExpandableSection
+              title="Key Achievements"
+              icon={Award}
+              isExpanded={expandedSections[index]?.achievements || false}
+              onToggle={() => toggleSection(index, 'achievements')}
+            >
+              <ul className="space-y-1.5">
+                {director.achievements.map((achievement, idx) => (
+                  <li 
+                    key={idx}
+                    className="flex items-start gap-2"
+                  >
+                    <span className="text-purple-400 mt-1 flex-shrink-0">•</span>
+                    <span className="text-sm text-gray-300">
+                      {achievement}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </ExpandableSection>
+          </div>
         </motion.div>
+      ))}
+    </motion.div>
       );
     }
 

@@ -93,7 +93,7 @@ const Clients = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-transparent to-black/5">
+    <section className=" bg-gradient-to-b from-transparent to-black/5">
       <motion.div
         initial="hidden"
         animate="visible"

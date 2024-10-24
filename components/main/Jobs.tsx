@@ -753,6 +753,8 @@ return (
       <Image
         src="/nix-batch1.png" 
         alt="NIX Program" 
+        width={1080}
+        height={1920}
         className="w-full h-full object-cover rounded-full p-2"
         style={{
           maskImage: 'radial-gradient(circle, white 100%, transparent 100%)',

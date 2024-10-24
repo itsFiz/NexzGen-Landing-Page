@@ -3,8 +3,8 @@ import ProductsContent from '@/components/main/ProductsContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Products | NexzGen - Innovative Digital Products',
-  description: 'Discover NexzGen\'s innovative products including CareerRPG, ARespiratory, and other cutting-edge digital solutions.',
+  title: 'Ventures | NexzGen - Project Ventures',
+  description: 'Discover NexzGen\'s project ventures including CareerRPG, ARespiratory, and other cutting-edge digital solutions.',
   // ... rest of metadata
 };
 

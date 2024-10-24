@@ -118,16 +118,19 @@ interface AboutContent {
       image: "/ceo.png",
       description: "Visionary technologist with a knack for staying ahead, driving the company's technological endeavors with a forward-thinking approach.",
       qualifications: [
+        "Executive (System Development) at TNB Research",
         "Graduate Technologist certified by MBOT",
-        "4 years of expertise in a myriad of programming frameworks, including Next.js, React, Unity, and Flutter",
+        "Coding since 11y/o, 132 IQ",
+        "4 years of professional expertise in a myriad of programming frameworks, including Next.js, React, Unity, and Flutter",
         "Former IT Associate at UOB, 3D Content Developer at Innoveam",
         "Computer Sc. (Multimedia) graduate from University Putra Malaysia",
-        "Co-inventor of 'ARespiratory', a copyrighted AR app with Technology Readiness Level(TRL):6"
+        "Co-inventor of 'ARespiratory', an IUCEL gold medal winner copyrighted AR app with Technology Readiness Level(TRL):6"
       ],
       socialLinks: {
         linkedin: "https://linkedin.com/in/hafizkadir",
         twitter: "https://twitter.com/hafizkadir",
-        github: "https://github.com/hafizkadir"
+        github: "https://github.com/hafizkadir",
+        
       }
     },
     {
