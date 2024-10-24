@@ -617,7 +617,7 @@ return (
           What you love
         </span>
         <span className="px-4 py-2 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
-          What you`&apos;`re great at
+          What you&apos;re great at
         </span>
         
         <span className="px-4 py-2 rounded-full bg-green-500/10 text-green-300 border border-green-500/20">
@@ -708,7 +708,7 @@ return (
             </h2>
             
             <p className="text-gray-300">
-              Join NIX and be part of an exciting journey where you`&apos;`ll gain hands-on experience,
+              Join NIX and be part of an exciting journey where you&apos;ll gain hands-on experience,
               receive mentorship from industry experts, and work on cutting-edge projects that
               make a real impact.
             </p>

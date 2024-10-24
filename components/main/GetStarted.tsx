@@ -119,10 +119,10 @@ export default function GetStarted() {
           className="text-center mb-12"
         >
           <h1 className="py-5 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-            Let`&apos;`s Build Something Amazing
+            Let&apos;s Build Something Amazing
           </h1>
           <p className="mt-4 text-gray-400">
-            Tell us about your project and we`&apos;`ll help bring your vision to life
+            Tell us about your project and we&apos;ll help bring your vision to life
           </p>
         </motion.div>
 

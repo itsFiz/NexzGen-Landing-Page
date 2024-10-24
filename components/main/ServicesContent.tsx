@@ -248,7 +248,7 @@ export default function ServicesContent() {
               Ready to Transform Your Ideas?
             </h2>
             <p className="text-gray-300">
-              Let `&apos;` s collaborate to bring your vision to life with our comprehensive suite of services.
+              Let&apos;s collaborate to bring your vision to life with our comprehensive suite of services.
             </p>
             
 <GetStartedButton/>

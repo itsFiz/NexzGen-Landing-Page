@@ -207,7 +207,7 @@ const About = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">Our Services</h2>
               <p className="text-2smy leading-relaxed text-gray-300 max-w-3xl mx-auto">
-              We`&apos;`re driven by a passion for digital transformation and sustainable growth. Our solutions across four key pillars not only drive our revenue but also enable us to sustain research, development, and operational costs for our ventures, ensuring continuous improvement and innovation. 
+              We&apos;re driven by a passion for digital transformation and sustainable growth. Our solutions across four key pillars not only drive our revenue but also enable us to sustain research, development, and operational costs for our ventures, ensuring continuous improvement and innovation. 
               </p>
             </div>
             
