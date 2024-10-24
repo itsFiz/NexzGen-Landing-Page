@@ -202,7 +202,7 @@ const ProductsContent = () => {
           R&D Ventures
         </h1>
         <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-          Pioneering tomorrow's solutions through innovative research and development
+          Pioneering tomorrow&apos;s solutions through innovative research and development
         </p>
       </div>
 
