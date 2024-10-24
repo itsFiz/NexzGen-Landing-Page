@@ -17,15 +17,22 @@ const TabButton: React.FC<TabButtonProps> = ({ active, selectTab, children }) =>
   const buttonClasses = active ? "text-purple" : "text-[#ADB7BE]";
 
   return (
-    <button onClick={selectTab} className="relative">
-      <p className={`mr-3 text-lg font-semibold hover:text-purple ${buttonClasses}`}>
-        {children}
-      </p>
-      <motion.div
-        animate={active ? "active" : "default"}
-        variants={variants}
-        className="h-1 bg-primary-500 absolute bottom-0 left-0 right-0"
-      ></motion.div>
+    <button
+      onClick={selectTab}
+      className={`
+        relative px-6 py-2 rounded-full text-base font-semibold transition-all
+        ${active 
+          ? "text-white bg-gradient-to-r from-purple-500 to-blue-500" 
+          : "text-[#ADB7BE] hover:text-white"
+        }
+      `}
+    >
+      {children}
+      {active && (
+        <div
+          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500"
+        />
+      )}
     </button>
   );
 };

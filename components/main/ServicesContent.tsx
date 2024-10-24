@@ -1,7 +1,6 @@
 // app/services/page.tsx
 'use client';
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ChevronDown, Code, Palette, Smartphone, Megaphone } from 'lucide-react';
 import GetStartedButton from '@/components/sub/GetStartedButton';
@@ -49,7 +48,7 @@ interface Service {
             <h3 className="text-xl font-semibold text-white">{title}</h3>
           </div>
           <ChevronDown 
-            className={`transform transition-transform duration-200 text-purple-500 ${isOpen ? 'rotate-180' : ''}`}
+            className={`transform transition-transform duration-200 text-purple-500 ${isOpen ? '&apos; rotate-180 ' : ''}`}
           />
         </button>
         
@@ -207,44 +206,10 @@ export default function ServicesContent() {
     <main className="flex flex-col min-h-screen z-[10]">
       <div className="relative">
         {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="pt-32 pb-16 text-center px-4"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-500 mb-6">
-            Our Services
-          </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Comprehensive digital solutions tailored to transform your ideas into reality.
-          </p>
-        </motion.div>
+        
 
         {/* Services Overview Cards */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="max-w-7xl mx-auto px-4 mb-20"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((category, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-2xl border border-[#2A0E61] bg-[#0300145e] backdrop-blur-md group hover:bg-[#0300147e] transition-all"
-              >
-                <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  {category.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{category.title}</h3>
-                <p className="text-gray-400 text-sm">{category.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        
 
         {/* Detailed Services Section */}
         <motion.div
@@ -255,8 +220,11 @@ export default function ServicesContent() {
 >
   <div className="max-w-6xl mx-auto p-6 py-20">
     <h2 className="text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-500 mb-12">
-      Explore Our Solutions
+      Explore Our Services
     </h2>
+    <p className="text-center text-gray-300 max-w-2xl mx-auto mb-10">
+            Comprehensive services tailored to transform your ideas into reality.
+          </p>
     <div className="space-y-6">
       {categories.map((category, index) => (
         <ServiceCategory 
@@ -273,14 +241,14 @@ export default function ServicesContent() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="py-20 px-4 text-center"
+          className=" px-4 text-center"
         >
           <div className="max-w-3xl mx-auto space-y-6">
             <h2 className="text-3xl font-bold text-white">
               Ready to Transform Your Ideas?
             </h2>
-            <p className="text-gray-300 pb-5">
-              Let's collaborate to bring your vision to life with our comprehensive suite of services.
+            <p className="text-gray-300">
+              Let `&apos;` s collaborate to bring your vision to life with our comprehensive suite of services.
             </p>
             
 <GetStartedButton/>

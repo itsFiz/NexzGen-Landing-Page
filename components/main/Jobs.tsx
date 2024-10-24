@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from "next/image";
 
 interface Job {
   id: string;
@@ -608,7 +609,7 @@ return (
     >
       <h1 className="text-4xl md:text-5xl font-bold">
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-          Finding Your Ikigai 
+          Find Your Ikigai With Us
         </span>
       </h1>
       <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base">
@@ -616,7 +617,7 @@ return (
           What you love
         </span>
         <span className="px-4 py-2 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
-          What you're great at
+          What you`&apos;`re great at
         </span>
         
         <span className="px-4 py-2 rounded-full bg-green-500/10 text-green-300 border border-green-500/20">
@@ -707,7 +708,7 @@ return (
             </h2>
             
             <p className="text-gray-300">
-              Join NIX and be part of an exciting journey where you'll gain hands-on experience,
+              Join NIX and be part of an exciting journey where you`&apos;`ll gain hands-on experience,
               receive mentorship from industry experts, and work on cutting-edge projects that
               make a real impact.
             </p>
@@ -749,7 +750,7 @@ return (
   <div className="relative w-4/5 h-4/5">
     {/* Main Image Container */}
     <div className="relative w-full h-full rounded-full overflow-hidden bg-gradient-to-b from-gray-900 to-[#2A0E61]">
-      <img 
+      <Image
         src="/nix-batch1.png" 
         alt="NIX Program" 
         className="w-full h-full object-cover rounded-full p-2"

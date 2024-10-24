@@ -1,26 +1,39 @@
-// app/components/TabButton.tsx
-'use client';
-import { motion } from 'framer-motion';
+// components/TabButton.tsx
+import React from "react";
+import { motion } from "framer-motion";
 
 interface TabButtonProps {
+  active: boolean;
+  selectTab: () => void;
   children: React.ReactNode;
-  selected: boolean;
-  onClick: () => void;
 }
 
-export default function TabButton({ children, selected, onClick }: TabButtonProps) {
+const TabButton: React.FC<TabButtonProps> = ({ active, selectTab, children }) => {
   return (
     <motion.button
-      onClick={onClick}
-      className={`px-6 py-3 rounded-full text-base font-medium transition-all ${
-        selected 
-          ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white" 
-          : "text-gray-400 hover:text-white"
-      }`}
+      onClick={selectTab}
+      className={`
+        relative px-6 py-2 rounded-full text-base font-semibold transition-all
+        ${active 
+          ? "text-white bg-gradient-to-r from-purple-500 to-blue-500" 
+          : "text-[#ADB7BE] hover:text-white"
+        }
+      `}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
       {children}
+      {active && (
+        <motion.div
+          className=" bg-gradient-to-r from-purple-500 to-blue-500"
+          layoutId="activeTab"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        />
+      )}
     </motion.button>
   );
-}
+};
+
+export default TabButton;

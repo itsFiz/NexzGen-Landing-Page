@@ -1,5 +1,6 @@
 'use client'
 import React from "react";
+import Image from "next/image";
 import { RxLinkedinLogo } from "react-icons/rx";
 import { FaDiscord, FaFacebook, FaInstagram, FaTelegram, FaTwitter, FaWhatsapp, FaYoutube } from "react-icons/fa";
 
@@ -17,7 +18,7 @@ const Footer = () => {
             {/* Logo Section */}
             <div className="flex flex-col items-center lg:items-start col-span-1 lg:col-span-1">
               <div className="flex items-center gap-2">
-                <img
+                <Image
                   loading="lazy"
                   src="https://i.imgur.com/GvgmDPf.png"
                   className="w-[60px] h-auto object-contain"

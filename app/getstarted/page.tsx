@@ -1,6 +1,7 @@
 // app/getstarted/page.tsx (Server Component)
 
-import GetStarted from '@/components/main/getstarted';
+
+import GetStarted from '@/components/main/GetStarted';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

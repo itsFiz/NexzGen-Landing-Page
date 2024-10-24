@@ -66,7 +66,7 @@ export default function Contact() {
               <div>
                 <h2 className="text-2xl font-bold text-white mb-4">Get in Touch</h2>
                 <p className="text-gray-300">
-                  Have a question or want to work together? We'd love to hear from you.
+                  Have a question or want to work together? We`&apos;`d love to hear from you.
                 </p>
               </div>
 

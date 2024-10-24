@@ -27,11 +27,6 @@ const images = [
     description: "Social Security Organisation"
   },
   {
-    url: "/litera.png",
-    alt: "LiteraLearn",
-    description: "Educational Technology Partner"
-  },
-  {
     url: "/klinikiris.png",
     alt: "KlinikPergigianIris",
     description: "Klinik Pergigian Iris"
@@ -74,7 +69,7 @@ const Clients = () => {
 
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 3000); // Slower rotation for better visibility
+    }, 1000); // Slower rotation for better visibility
 
     return () => clearInterval(interval);
   }, [autoplayEnabled]);
@@ -93,8 +88,8 @@ const Clients = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 },
-    hover: { scale: 1.05, transition: { duration: 0.2 } }
+    visible: { opacity: 1, scale: 1.2 },
+    hover: { scale: 1.25, transition: { duration: 0.2 } }
   };
 
   return (
@@ -112,10 +107,10 @@ const Clients = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Trusted By Industry Leaders
+            Trusted By
           </motion.h2>
           <motion.p
-            className="text-gray-600 mt-4 max-w-2xl mx-auto"
+            className="text-gray-400 mt-4 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
