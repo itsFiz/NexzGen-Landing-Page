@@ -3,6 +3,7 @@ import React, {ReactNode, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, ArrowRight, Users, Target, Rocket, Star } from 'lucide-react';
 
+
 type ProductStatus = 'Active' | 'Beta' | 'Development' | 'Prototype';
 type BadgeVariant = 'outline' | 'default' | 'secondary';
 
@@ -636,11 +637,14 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClos
   );
 };
 
+const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+
 // Main Component
 const ProductsContent: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const filteredProducts = products.filter(product => {
     const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
@@ -701,8 +705,7 @@ const ProductsContent: React.FC = () => {
               MedTech
             </Button>
             <Button
-
-                variant={selectedCategory === "SaaS" ? "default" : "secondary"}
+              variant={selectedCategory === "SaaS" ? "default" : "secondary"}
               onClick={() => setSelectedCategory("SaaS")}
               className="px-4 py-2"
             >
@@ -722,7 +725,7 @@ const ProductsContent: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               className="group"
-              onClick={() => setSelectedProduct(product)}
+              onClick={() => setSelectedProduct(selectedProduct)}
             >
               <Card className="bg-gray-800/50 border-gray-700 hover:border-purple-500 transition-all cursor-pointer">
                 <CardHeader>
