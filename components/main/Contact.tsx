@@ -3,15 +3,18 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { MapPin, Mail, Phone, Loader2, LucideIcon } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import emailjs from '@emailjs/browser';
 
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-
-if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
-  console.error('Missing EmailJS environment variables');
-}
+interface FormData {
+    name: string;
+    email: string;
+    message: string;
+  }
+  
+  interface FormStatus {
+    loading: boolean;
+    success: boolean;
+    error: boolean;
+  }
 
 // Types and Interfaces
 interface ContactInfoProps {
@@ -22,17 +25,7 @@ interface ContactInfoProps {
   href?: string;
 }
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
 
-interface FormStatus {
-  loading: boolean;
-  success: boolean;
-  error: boolean;
-}
 
 // Contact info component with proper typing
 const ContactInfo: React.FC<ContactInfoProps> = ({ 
@@ -64,77 +57,58 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
 );
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const [status, setStatus] = useState<FormStatus>({
-    loading: false,
-    success: false,
-    error: false
-  });
-
-  useEffect(() => {
-    if (EMAILJS_PUBLIC_KEY) {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-    }
-  }, []);
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value
+    const [formData, setFormData] = useState<FormData>({
+      name: '',
+      email: '',
+      message: ''
     });
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus({ loading: true, success: false, error: false });
-    if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
-      console.error('EmailJS configuration is missing');
-      setStatus({ loading: false, success: false, error: true });
-      return;
-    }
-
-    setStatus({ loading: true, success: false, error: false });
-
-    const templateParams = {
-      name: formData.name,
-      reply_to: formData.email,
-      message: formData.message,
+  
+    const [status, setStatus] = useState<FormStatus>({
+      loading: false,
+      success: false,
+      error: false
+    });
+  
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData(prev => ({
+        ...prev,
+        [e.target.id]: e.target.value
+      }));
     };
-    try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
-      );
-      
-      setStatus({ loading: false, success: true, error: false });
-      setFormData({ name: '', email: '', message: '' });
-      
-      setTimeout(() => {
-        setStatus({ loading: false, success: false, error: false });
-      }, 3000);
-    } catch (error) {
-      console.error('Error sending email:', error);
-      setStatus({ loading: false, success: false, error: true });
-      
-      setTimeout(() => {
-        setStatus({ loading: false, success: false, error: false });
-      }, 3000);
-    }
-  };
-
-  React.useEffect(() => {
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
-  }, []);
-
-   
-      
+  
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setStatus({ loading: true, success: false, error: false });
+  
+      try {
+        const response = await fetch('/api/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to send email');
+        }
+  
+        setStatus({ loading: false, success: true, error: false });
+        setFormData({ name: '', email: '', message: '' });
+        
+        setTimeout(() => {
+          setStatus({ loading: false, success: false, error: false });
+        }, 3000);
+      } catch (error) {
+        console.error('Error sending email:', error);
+        setStatus({ loading: false, success: false, error: true });
+        
+        setTimeout(() => {
+          setStatus({ loading: false, success: false, error: false });
+        }, 3000);
+      }
+    };
+  
      
 
   return (
