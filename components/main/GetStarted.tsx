@@ -218,7 +218,7 @@ export default function GetStarted() {
         >
           <Alert className="mt-4 bg-green-500/10 text-green-500 border-green-500/20">
             <AlertDescription>
-              Thank you! Your project inquiry has been submitted successfully. We'll get back to you within 24-48 business hours.
+              Thank you! Your project inquiry has been submitted successfully. We&apos;ll get back to you within 24-48 business hours.
             </AlertDescription>
           </Alert>
         </motion.div>
@@ -597,7 +597,7 @@ export default function GetStarted() {
         >
           <Alert className="mt-4 bg-green-500/10 text-green-500 border-green-500/20">
             <AlertDescription>
-              Thank you! Your project inquiry has been submitted successfully. We'll get back to you within 24-48 business hours.
+              Thank you! Your project inquiry has been submitted successfully. We&apos;ll get back to you within 24-48 business hours.
             </AlertDescription>
           </Alert>
         </motion.div>
