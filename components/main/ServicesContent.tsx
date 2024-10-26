@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Code, Palette, Smartphone, Megaphone } from 'lucide-react';
 import GetStartedButton from '@/components/sub/GetStartedButton';
+import Clients from '@/components/main/Clients';
 
 // First, let's define the TypeScript interfaces
 interface Service {
@@ -235,13 +236,13 @@ export default function ServicesContent() {
     </div>
   </div>
 </motion.div>
-
+<Clients/>
         {/* Call to Action Section */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className=" px-4 text-center"
+          className=" pt-20 px-4 text-center"
         >
           <div className="max-w-3xl mx-auto space-y-6">
             <h2 className="text-3xl font-bold text-white">

@@ -111,12 +111,12 @@ const Footer = () => {
       variants={containerVariants}
       className="relative z-10 w-full bg-gradient-to-b from-transparent to-[#0300145e] backdrop-blur-md pt-16 pb-8"
     >
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 mr-10">
-        <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-8">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+        <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 justify-items-center">
           {/* Logo Section */}
-          <div className="flex flex-col items-center lg:items-start space-y-4">
+          <div className="flex flex-col items-center space-y-4 max-w-[250px]">
             <motion.div 
-              className="flex items-center gap-5 group "
+              className="flex flex-col items-center gap-3"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -127,17 +127,16 @@ const Footer = () => {
                 className="object-contain group-hover:rotate-12 transition-transform duration-300"
                 alt="NexzGen Logo"
               />
-              <span className="font-bold text-xl text-gray-200 hidden md:block">
+              <span className="font-bold text-xl text-gray-200">
                 NexzGen Studio
               </span>
             </motion.div>
-            <p className="text-sm text-gray-300 text-center lg:text-left max-w-[250px]">
-            202403051936 (003579929-K)
+            <p className="text-sm text-gray-300 text-center">
+              202403051936 (003579929-K)
             </p>
-            <p className="text-sm text-gray-300 text-center lg:text-left max-w-[250px]">
-            Empowering individuals and businesses through AI-driven EdTech solutions, Extended Reality(XR) experiences, innovative SaaS platforms & SMMA strategies.
+            <p className="text-sm text-gray-300 text-center">
+              Empowering individuals and businesses through AI-driven EdTech solutions, Extended Reality(XR) experiences, innovative SaaS platforms & SMMA strategies.
             </p>
-
           </div>
 
           {/* Information Sections */}
@@ -145,12 +144,12 @@ const Footer = () => {
             <motion.div
               key={sectionIdx}
               variants={itemVariants}
-              className="flex flex-col items-center lg:items-start space-y-4"
+              className="flex flex-col items-center space-y-4"
             >
               <h3 className="font-bold text-base text-gray-200 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-500 hover:after:w-full after:transition-all after:duration-300">
                 {section.title}
               </h3>
-              <div className="flex flex-col items-center lg:items-start space-y-3">
+              <div className="flex flex-col items-center space-y-3">
                 {section.content.map((item, index) => (
                   item.link ? (
                     <motion.a
@@ -158,7 +157,7 @@ const Footer = () => {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-gray-300 hover:text-purple-400 group transition-colors"
+                      className="flex items-center gap-2 text-sm text-gray-300 hover:text-purple-400 group transition-colors text-center"
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
@@ -170,9 +169,9 @@ const Footer = () => {
                       <span>{item.text}</span>
                     </motion.a>
                   ) : (
-                    <div key={index} className="flex items-center gap-2 text-sm text-gray-300">
+                    <div key={index} className="flex items-center gap-2 text-sm text-gray-300 text-center">
                       {item.icon && (
-                        <span className="text-purple-400">
+                        <span className="text-purple-400 flex-shrink-0">
                           {item.icon}
                         </span>
                       )}
@@ -189,12 +188,12 @@ const Footer = () => {
             <motion.div
               key={type}
               variants={itemVariants}
-              className="flex flex-col items-center lg:items-start space-y-4"
+              className="flex flex-col items-center space-y-4"
             >
               <h3 className="font-bold text-base text-gray-200 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-500 hover:after:w-full after:transition-all after:duration-300">
                 {type.charAt(0).toUpperCase() + type.slice(1)}
               </h3>
-              <div className="flex flex-col items-center lg:items-start space-y-3">
+              <div className="flex flex-col items-center space-y-3">
                 {socialLinks[type].map((item, index) => (
                   <motion.a
                     key={index}
@@ -221,7 +220,7 @@ const Footer = () => {
           variants={itemVariants}
           className="mt-16 pt-8 border-t border-gray-800 text-sm text-center text-gray-300"
         >
-          <p>Copyright &copy; {currentYear} NexzGen. All rights reserved</p>
+          <p>Copyright © {currentYear} NexzGen. All rights reserved</p>
         </motion.div>
       </div>
     </motion.footer>
