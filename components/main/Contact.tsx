@@ -158,7 +158,7 @@ const ContactForm: React.FC = () => {
               <div>
                 <h2 className="text-2xl font-bold text-white mb-4">Get in Touch</h2>
                 <p className="text-gray-300">
-                  Have a question or want to work together? We'd love to hear from you.
+                  Have a question or want to work together? We&apos;d love to hear from you.
                 </p>
               </div>
 
@@ -281,7 +281,7 @@ const ContactForm: React.FC = () => {
               {status.success && (
                 <Alert className="mt-4 bg-green-500/10 text-green-500 border-green-500/20">
                   <AlertDescription>
-                    Message sent successfully! We'll get back to you soon.
+                    Message sent successfully! We&apos;ll get back to you soon.
                   </AlertDescription>
                 </Alert>
               )}

@@ -8,10 +8,7 @@ export const metadata: Metadata = {
   title: 'Get Started | NexzGen - Start Your Project',
   description: 'Begin your journey with NexzGen. Get a custom quote for web development, AR solutions, animation, or digital marketing services.',
   keywords: 'NexzGen, project quote, custom development, service inquiry, get started',
-  openGraph: {
-    title: 'Get Started with NexzGen',
-    description: 'Transform your ideas into reality with NexzGen\'s cutting-edge solutions.',
-  }
+
 };
 
 export default function GetStartedPage() {
