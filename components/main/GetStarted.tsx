@@ -2,8 +2,8 @@
 'use client';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronDown, Send, ArrowLeft } from 'lucide-react';
-
+import {Send, ArrowLeft, Loader2 } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 // Rest of your GetStarted component
 // Define types for form data
@@ -88,6 +88,7 @@ const timelines = [
 
 export default function GetStarted() {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedService, setSelectedService] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [formData, setFormData] = useState<FormData>({
@@ -103,12 +104,141 @@ export default function GetStarted() {
     requirements: []
   });
 
+  const [submitStatus, setSubmitStatus] = useState({
+    loading: false,
+    success: false,
+    error: false
+  });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/project-inquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          serviceType: selectedService,
+          selectedOption,
+          projectDetails: formData.projectDetails,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send project inquiry');
+      }
+
+      // Handle success (reset form, show success message, etc.)
+      setSubmitStatus({ loading: false, success: true, error: false });
+      
+      // Reset form after successful submission
+      setTimeout(() => {
+        setStep(1);
+        setSelectedService('');
+        setSelectedOption('');
+        setFormData({
+          serviceType: '',
+          projectDetails: {
+            name: '',
+            email: '',
+            company: '',
+            budget: '',
+            timeline: '',
+            description: ''
+          },
+          requirements: []
+        });
+      }, 3000);
+
+    } catch (error) {
+      console.error('Error:', error);
+      setSubmitStatus({ loading: false, success: false, error: true });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
+  const isStepValid = () => {
+    switch (step) {
+      case 1:
+        return selectedService && selectedOption;
+      case 2:
+        return (
+          formData.projectDetails.name &&
+          formData.projectDetails.email &&
+          formData.projectDetails.budget &&
+          formData.projectDetails.timeline &&
+          formData.projectDetails.description
+        );
+      default:
+        return true;
+    }
+  };
+  const renderSubmitButton = () => (
+    <motion.button
+      type="submit"
+      onClick={handleSubmit}
+      disabled={isSubmitting}
+      className={`
+        py-3 px-6 rounded-lg font-semibold
+        bg-gradient-to-r from-purple-500 to-blue-500
+        text-white transition-all duration-200
+        ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90'}
+      `}
+      whileHover={isSubmitting ? {} : { scale: 1.02 }}
+      whileTap={isSubmitting ? {} : { scale: 0.98 }}
+    >
+      <div className="flex items-center gap-2">
+        {isSubmitting ? (
+          <>
+            <Loader2 className="w-4 h-4 animate-spin" />
+            <span>Submitting...</span>
+          </>
+        ) : (
+          <>
+            <span>Submit Request</span>
+            <Send className="w-4 h-4" />
+          </>
+        )}
+      </div>
+    </motion.button>
+  );
+
+  // Add status alerts at the end of step 3
+  const renderStatusAlerts = () => (
+    <AnimatePresence>
+      {submitStatus.success && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+        >
+          <Alert className="mt-4 bg-green-500/10 text-green-500 border-green-500/20">
+            <AlertDescription>
+              Thank you! Your project inquiry has been submitted successfully. We'll get back to you within 24-48 business hours.
+            </AlertDescription>
+          </Alert>
+        </motion.div>
+      )}
+
+      {submitStatus.error && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+        >
+          <Alert className="mt-4 bg-red-500/10 text-red-500 border-red-500/20">
+            <AlertDescription>
+              Something went wrong while submitting your request. Please try again or contact us directly.
+            </AlertDescription>
+          </Alert>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
   return (
     <main className="min-h-screen pt-24 pb-16 ">
       <div className="max-w-4xl mx-auto px-4 ">
@@ -376,80 +506,127 @@ export default function GetStarted() {
             </motion.form>
           )}
 
-          {step === 3 && (
-            <motion.div
-              key="step3"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              className="space-y-6"
-            >
-              <div className="bg-gray-900 rounded-xl p-6 space-y-4">
-                <h3 className="text-xl font-semibold text-white">Review Your Information</h3>
-                
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-gray-400">Service Type</p>
-                      <p className="text-white">{selectedOption}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-400">Budget Range</p>
-                      <p className="text-white">{formData.projectDetails.budget}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-400">Timeline</p>
-                      <p className="text-white">{formData.projectDetails.timeline}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-400">Contact</p>
-                      <p className="text-white">{formData.projectDetails.email}</p>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <p className="text-gray-400">Project Description</p>
-                    <p className="text-white">{formData.projectDetails.description}</p>
-                  </div>
-                </div>
-              </div>
+{step === 3 && (
+  <motion.div
+    key="step3"
+    initial={{ opacity: 0, x: 20 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -20 }}
+    className="space-y-6"
+  >
+    <div className="bg-gray-900 rounded-xl p-6 space-y-4">
+      <h3 className="text-xl font-semibold text-white">Review Your Information</h3>
+      
+      <div className="space-y-4">
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <p className="text-gray-400">Service Type</p>
+            <p className="text-white">{selectedOption}</p>
+          </div>
+          <div>
+            <p className="text-gray-400">Budget Range</p>
+            <p className="text-white">{formData.projectDetails.budget}</p>
+          </div>
+          <div>
+            <p className="text-gray-400">Timeline</p>
+            <p className="text-white">{formData.projectDetails.timeline}</p>
+          </div>
+          <div>
+            <p className="text-gray-400">Contact</p>
+            <p className="text-white">{formData.projectDetails.email}</p>
+          </div>
+        </div>
+        
+        <div>
+          <p className="text-gray-400">Project Description</p>
+          <p className="text-white">{formData.projectDetails.description}</p>
+        </div>
+      </div>
+    </div>
 
-              <div className="flex justify-between">
- <motion.button
-   type="button"
-   onClick={() => setStep(2)}
-   className="py-3 px-6 rounded-lg font-semibold border border-gray-800 text-white hover:bg-gray-800 transition-colors"
-   whileHover={{ scale: 1.02 }}
-   whileTap={{ scale: 0.98 }}
- >
-   <div className="flex items-center gap-2">
-     <ArrowLeft className="w-4 h-4" />
-     Back
-   </div>
- </motion.button>
- 
- <motion.button
-   type="submit"
-   onClick={handleSubmit}
-   className="py-3 px-6 rounded-lg font-semibold bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:opacity-90 transition-opacity"
-   whileHover={{ scale: 1.02 }}
-   whileTap={{ scale: 0.98 }}
- >
-   <div className="flex items-center gap-2">
-     Submit Request
-     <Send className="w-4 h-4" />
-   </div>
- </motion.button>
-</div>
+    <div className="flex justify-between">
+      <motion.button
+        type="button"
+        onClick={() => setStep(2)}
+        className="py-3 px-6 rounded-lg font-semibold border border-gray-800 text-white hover:bg-gray-800 transition-colors"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <div className="flex items-center gap-2">
+          <ArrowLeft className="w-4 h-4" />
+          Back
+        </div>
+      </motion.button>
+      
+      <motion.button
+        type="submit"
+        onClick={handleSubmit}
+        disabled={isSubmitting}
+        className={`
+          py-3 px-6 rounded-lg font-semibold
+          bg-gradient-to-r from-purple-500 to-blue-500
+          text-white transition-all duration-200
+          ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90'}
+        `}
+        whileHover={isSubmitting ? {} : { scale: 1.02 }}
+        whileTap={isSubmitting ? {} : { scale: 0.98 }}
+      >
+        <div className="flex items-center gap-2">
+          {isSubmitting ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span>Submitting...</span>
+            </>
+          ) : (
+            <>
+              <span>Submit Request</span>
+              <Send className="w-4 h-4" />
+            </>
+          )}
+        </div>
+      </motion.button>
+    </div>
 
-             <div className="mt-8 p-4 bg-gray-900/50 border border-gray-800 rounded-lg">
-               <p className="text-gray-400 text-sm">
-                 By submitting this form, you agree to be contacted about your project request. 
-                 We typically respond within 24-48 business hours.
-               </p>
-             </div>
-           </motion.div>
-         )}
+    {/* Status Alerts */}
+    <AnimatePresence mode="wait">
+      {submitStatus.success && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+        >
+          <Alert className="mt-4 bg-green-500/10 text-green-500 border-green-500/20">
+            <AlertDescription>
+              Thank you! Your project inquiry has been submitted successfully. We'll get back to you within 24-48 business hours.
+            </AlertDescription>
+          </Alert>
+        </motion.div>
+      )}
+
+      {submitStatus.error && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+        >
+          <Alert className="mt-4 bg-red-500/10 text-red-500 border-red-500/20">
+            <AlertDescription>
+              Something went wrong while submitting your request. Please try again or contact us directly.
+            </AlertDescription>
+          </Alert>
+        </motion.div>
+      )}
+    </AnimatePresence>
+
+    {/* Privacy Notice */}
+    <div className="mt-8 p-4 bg-gray-900/50 border border-gray-800 rounded-lg">
+      <p className="text-gray-400 text-sm">
+        By submitting this form, you agree to be contacted about your project request. 
+        We typically respond within 24-48 business hours.
+      </p>
+    </div>
+  </motion.div>
+)}
        </AnimatePresence>
      </div>
    </main>
