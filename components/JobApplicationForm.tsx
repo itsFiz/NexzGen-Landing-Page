@@ -191,7 +191,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ jobData }) => {
       </div>
     );
   }
-  
+
   if (submitted) {
     return (
       <div className="min-h-screen flex items-center justify-center pt-24 pb-16">
@@ -496,7 +496,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ jobData }) => {
             <div className="p-4 bg-gray-900/20 backdrop-blur-sm border border-gray-500/20 rounded-lg w-full">
               <p className="text-gray-400 text-sm text-center">
                 By submitting this application, you agree to our terms and conditions. 
-                We'll process your information according to our privacy policy.
+                We&apos;ll process your information according to our privacy policy.
               </p>
             </div>
           </CardFooter>
