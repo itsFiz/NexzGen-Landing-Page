@@ -68,7 +68,7 @@ const IkigaiSection = () => {
           <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
             <div className="bg-blue-900/20 backdrop-blur-sm p-4 rounded-xl border border-blue-500/20">
               <h4 className="text-lg font-semibold text-white mb-2">Passion</h4>
-              <p className="text-sm text-gray-300">What you love and what you're good at</p>
+              <p className="text-sm text-gray-300">What you love and what you&apos;re good at</p>
             </div>
             <div className="bg-green-900/20 backdrop-blur-sm p-4 rounded-xl border border-green-500/20">
               <h4 className="text-lg font-semibold text-white mb-2">Mission</h4>
@@ -76,7 +76,7 @@ const IkigaiSection = () => {
             </div>
             <div className="bg-yellow-900/20 backdrop-blur-sm p-4 rounded-xl border border-yellow-500/20">
               <h4 className="text-lg font-semibold text-white mb-2">Profession</h4>
-              <p className="text-sm text-gray-300">What you're good at and can be paid for</p>
+              <p className="text-sm text-gray-300">What you&apos;re good at and can be paid for</p>
             </div>
             <div className="bg-red-900/20 backdrop-blur-sm p-4 rounded-xl border border-red-500/20">
               <h4 className="text-lg font-semibold text-white mb-2">Vocation</h4>
