@@ -4,6 +4,7 @@ export interface Job {
   title: string;
   type: string;
   program?: string;
+  isFoundingRole?: boolean; // New field for founding team positions
   location: string;
   employmentType: string;
   description: string;

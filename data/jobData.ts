@@ -1,67 +1,83 @@
 import { Job } from '@/types/job';
 
 export const jobData: Job[] = [{
-    id: '1',
-    title: "Augmented Reality (AR) Developer",
-    type: "Engineering",
-    location: "Kuala Lumpur",
-    employmentType: "Full-time",
-    description: "Join our AR team to create cutting-edge immersive experiences that transform how people learn and interact with technology. You'll be working on innovative projects including our flagship ARespiratory platform.",
-    responsibilities: [
-      "Develop AR applications using Unity and ARCore/ARKit",
-      "Collaborate with designers and product managers",
-      "Create immersive educational experiences",
-      "Optimize AR performance and user experience",
-      "Contribute to research and development of new AR features"
-    ],
-    prerequisites: [
-      "3+ years of AR development experience",
-      "Strong proficiency in C# and Unity",
-      "Experience with ARCore/ARKit",
-      "Understanding of 3D mathematics and computer vision",
-      "Portfolio demonstrating AR projects"
-    ],
-    benefits: [
-      "Competitive salary package",
-      "Flexible working hours",
-      "Health insurance",
-      "Professional development budget",
-      "Remote work options"
-    ],
-  applyUrl: "/careers/apply/1"
-  },
-  {
-    id: '2',
-    title: "Talent Acquisition Specialist",
-    type: "Human Resource",
-    program: "NIX",
-    location: "Kuala Lumpur",
-    employmentType: "Internship (6 months)",
-    description: "Join our NIX program as a Talent Acquisition Specialist intern. Help build NexzGen's future by identifying and nurturing top talent while learning the ins and outs of HR in a fast-paced startup environment.",
-    responsibilities: [
-      "Assist in full-cycle recruitment process",
-      "Screen resumes and conduct initial interviews",
-      "Coordinate with department heads for hiring needs",
-      "Help organize recruitment events and career fairs",
-      "Manage candidate database and track metrics"
-    ],
-    prerequisites: [
-      "Currently pursuing degree in HR Management or related field",
-      "Strong communication and interpersonal skills",
-      "Ability to work independently",
-      "Familiarity with recruitment tools and platforms",
-      "Good organizational skills"
-    ],
-    benefits: [
-      "Monthly allowance",
-      "Flexible working hours",
-      "Mentorship from senior HR professionals",
-      "Exposure to startup culture",
-      "Certificate upon completion",
-      "Potential for full-time conversion"
-    ],
-    applyUrl: "/careers/apply/2"
-  },
+  id: '1',
+  title: "Founding Engineer",
+  type: "Engineering",
+  isFoundingRole: true, // Add this flag
+  location: "Kuala Lumpur",
+  employmentType: "Full-time",
+  description: "Join NexzGen as a Founding Engineer to help build and scale our suite of innovative products including CareerRPG, NexzGen Academy, and ServisLah. As one of our first engineering hires, you'll have significant input into our technical direction and architecture while working on products that empower personal and professional fulfillment.",
+  responsibilities: [
+    "Architect and develop full-stack web applications using Next.js, React, and Prisma",
+    "Design and implement scalable database schemas and APIs",
+    "Lead technical decisions and establish engineering best practices",
+    "Mentor junior developers and interns through our NIX program",
+    "Collaborate with product and design teams to deliver exceptional user experiences",
+    "Contribute to technical strategy and product roadmap planning",
+    "Help build and nurture our engineering culture"
+  ],
+  prerequisites: [
+    "3+ years of full-stack development experience",
+    "Strong expertise in Next.js, React, and TypeScript",
+    "Experience with Prisma, PostgreSQL, and RESTful/GraphQL APIs",
+    "Proficiency in modern frontend development (Tailwind CSS, React Query, etc.)",
+    "Understanding of CI/CD, testing practices, and cloud deployment",
+    "Track record of leading technical projects and mentoring developers",
+    "Strong problem-solving skills and attention to detail",
+    "Startup mindset and ability to thrive in a fast-paced environment"
+  ],
+  benefits: [
+    "Competitive salary with equity package",
+    "Leadership role in shaping our technical direction",
+    "Flexible working arrangements with remote options",
+    "Health insurance and wellness benefits",
+    "Professional development budget",
+    "Regular team building and social events",
+    "Opportunity to join a rapidly growing startup with Y Combinator ambitions"
+  ],
+  applyUrl: "/careers/apply/1",
+  
+},
+{
+  id: '2',
+  title: "Founding Designer",
+  type: "Creative",
+  isFoundingRole: true, // Add this flag
+  location: "Kuala Lumpur",
+  employmentType: "Full-time",
+  description: "Join NexzGen as a Founding Designer to shape the visual identity and user experience of our innovative products. You'll work closely with our team to create engaging, intuitive interfaces for CareerRPG, NexzGen Academy, and other groundbreaking platforms. Path to Head of Design as we scale, with opportunity to build and lead the design team through our Y Combinator journey in 2026.",
+  responsibilities: [
+    "Lead the end-to-end design process from concept to implementation",
+    "Create and maintain our design system across all products",
+    "Design intuitive, engaging user interfaces and experiences",
+    "Conduct user research and translate insights into design solutions",
+    "Collaborate with engineers to ensure pixel-perfect implementation",
+    "Mentor junior designers and interns in our design programs",
+    "Drive design thinking and innovation across the company",
+    "Create compelling visual assets for marketing and branding"
+  ],
+  prerequisites: [
+    "4+ years of product design experience",
+    "Strong portfolio demonstrating UI/UX excellence",
+    "Expert knowledge of Figma and modern design tools",
+    "Experience designing for web and mobile platforms",
+    "Understanding of design systems and component libraries",
+    "Knowledge of frontend development principles",
+    "Experience with gamification and educational design",
+    "Strong communication and presentation skills"
+  ],
+  benefits: [
+    "Competitive salary with equity package",
+    "Creative freedom to shape product design direction",
+    "Flexible working arrangements with remote options",
+    "Health insurance and wellness benefits",
+    "Professional development and conference budget",
+    "Latest design tools and equipment",
+    "Regular design workshops and team collaboration"
+  ],
+  applyUrl: "/careers/apply/2"
+},
   {
     id: '3',
     title: "Fullstack Developer",
@@ -227,7 +243,6 @@ export const jobData: Job[] = [{
       "Collaborate with product teams on data-driven features"
     ],
     prerequisites: [
-      "MS/PhD in Data Science or related field",
       "Strong statistics background",
       "Proficiency in Python and R",
       "Experience with big data technologies",
@@ -365,6 +380,69 @@ benefits: [
 "Potential for full-time conversion"
 ],
 applyUrl: "/careers/apply/12"
-  }
+  },
+  {
+  id: '13',
+    title: "Augmented Reality (AR) Developer",
+    type: "Engineering",
+    program:"NIX",
+    location: "Kuala Lumpur",
+    employmentType: "Full-time",
+    description: "Join our AR team to create cutting-edge immersive experiences that transform how people learn and interact with technology. You'll be working on innovative projects including our flagship ARespiratory platform.",
+    responsibilities: [
+      "Develop AR applications using Unity and ARCore/ARKit",
+      "Collaborate with designers and product managers",
+      "Create immersive educational experiences",
+      "Optimize AR performance and user experience",
+      "Contribute to research and development of new AR features"
+    ],
+    prerequisites: [
+      "3+ years of AR development experience",
+      "Strong proficiency in C# and Unity",
+      "Experience with ARCore/ARKit",
+      "Understanding of 3D mathematics and computer vision",
+      "Portfolio demonstrating AR projects"
+    ],
+    benefits: [
+      "Competitive salary package",
+      "Flexible working hours",
+      "Health insurance",
+      "Professional development budget",
+      "Remote work options"
+    ],
+  applyUrl: "/careers/apply/13"
+  },
+  {
+    id: '14',
+    title: "Talent Acquisition Specialist",
+    type: "Human Resource",
+    program: "NIX",
+    location: "Kuala Lumpur",
+    employmentType: "Internship (6 months)",
+    description: "Join our NIX program as a Talent Acquisition Specialist intern. Help build NexzGen's future by identifying and nurturing top talent while learning the ins and outs of HR in a fast-paced startup environment.",
+    responsibilities: [
+      "Assist in full-cycle recruitment process",
+      "Screen resumes and conduct initial interviews",
+      "Coordinate with department heads for hiring needs",
+      "Help organize recruitment events and career fairs",
+      "Manage candidate database and track metrics"
+    ],
+    prerequisites: [
+      "Currently pursuing degree in HR Management or related field",
+      "Strong communication and interpersonal skills",
+      "Ability to work independently",
+      "Familiarity with recruitment tools and platforms",
+      "Good organizational skills"
+    ],
+    benefits: [
+      "Monthly allowance",
+      "Flexible working hours",
+      "Mentorship from senior HR professionals",
+      "Exposure to startup culture",
+      "Certificate upon completion",
+      "Potential for full-time conversion"
+    ],
+    applyUrl: "/careers/apply/14"
+  },
   // ... Add all other jobs here
 ]

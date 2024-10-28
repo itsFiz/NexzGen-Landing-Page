@@ -5,9 +5,9 @@ import TabButton from "../sub/TabButton";
 import SocialIcon from "../sub/SocialIcon";
 import { TAB_DATA} from "@/data/aboutData";
 import { Code, Palette, Smartphone, Megaphone, LucideIcon } from 'lucide-react';
-import GetStartedButton from "../sub/GetStartedButton";
 import Link from "next/link";
 import { BadgeCheck, Award, Briefcase, ChevronDown, ExternalLink } from 'lucide-react';
+import IkigaiSection from "./Ikigai";
 // Animation variants for expandable content
 interface ExpandableSectionProps {
   title: string;
@@ -76,9 +76,14 @@ const directorsData = [
       "Created 'Aphasia' as communication tool for patients"
     ],
     socialLinks: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
+      linkedin: "https://www.linkedin.com/in/hfzkdr/",
+      github: "https://github.com/itsFiz",
+      twitter: "https://x.com/criedfizcken",
+      instagram: "https://instagram.com/criedfizcken",
+      steam: "https://steamcommunity.com/id/itsFizzz/",
+      battlenet: "https://overwatch.blizzard.com/en-us/career/f14ca58fb77789a4eafb72fec900a70b48%7C2c74f15c6fe0c3e20f39f161cd365111/",
+      tiktok: "https://www.tiktok.com/@criedfizcken",
+      website: "https://fiz.framer.website"
     }
   },
   {
@@ -113,9 +118,10 @@ const directorsData = [
       "Extensive experience in animation production pipelines"
     ],
     socialLinks: {
-      linkedin: "#",
-      behance: "#",
-      instagram: "#"
+      linkedin: "https://www.linkedin.com/in/aagak/",
+      instagram: "https://www.instagram.com/andibahkalakau/",
+      steam: "https://steamcommunity.com/id/aagak/"
+
     }
   },
   {
@@ -150,8 +156,8 @@ const directorsData = [
       "Created employee development programs"
     ],
     socialLinks: {
-      linkedin: "#",
-      twitter: "#"
+      linkedin: "https://www.linkedin.com/in/putera-shazmin-878bb2283/",
+      instagram: "https://www.instagram.com/puterashazmin/"
     }
   },
   {
@@ -186,9 +192,10 @@ const directorsData = [
       "Created viral social media content campaigns"
     ],
     socialLinks: {
-      linkedin: "#",
-      instagram: "#",
-      tiktok: "#"
+      linkedin: "https://www.linkedin.com/in/aliff-farhat-57705b310/",
+      instagram: "https://www.instagram.com/aliff.farhat/",
+      tiktok: "https://www.tiktok.com/@aliff.farhat",
+      behance: "https://www.behance.net/alyphfarhat"
     }
   },
   {
@@ -223,9 +230,12 @@ const directorsData = [
       "Implemented gamification strategies in various projects"
     ],
     socialLinks: {
-      linkedin: "#",
-      github: "#",
-      playstore: "#"
+      linkedin: "https://www.linkedin.com/in/tengku-amirul-haiqal",
+      youtube: "https://www.youtube.com/@tenkk_ch",
+      twitter: "https://x.com/tenkk_ch",
+      tiktok: "https://www.tiktok.com/@tenkk_games",
+      instagram: "https://www.instagram.com/tenkk_ch/",
+      steam: "https://steamcommunity.com/id/tenkutenko/"
     }
   }
 ];
@@ -587,6 +597,7 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
+            <IkigaiSection/>
           </div>
         </motion.div>
       );

@@ -64,7 +64,7 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, isOpen, onClose })
             style={{ maxHeight: '80vh' }}
             onClick={e => e.stopPropagation()}
           >
-            <div className="flex flex-col max-h-[80vh]"> {/* Container for proper scrolling */}
+            <div className="flex flex-col max-h-[80vh]">
               <button
                 onClick={onClose}
                 className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white z-10"
@@ -75,17 +75,27 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, isOpen, onClose })
               <div className="overflow-y-auto p-6 space-y-6 custom-scrollbar">
                 {/* Header */}
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <h2 className="text-2xl font-bold text-white">{job.title}</h2>
                     {job.program === "NIX" && <NixLabel />}
                   </div>
-                  <div className="flex items-center space-x-4">
+                  <div className="flex flex-wrap items-center gap-3">
                     <span className={`px-3 py-1 text-sm rounded-full ${typeColors[job.type] || "bg-gray-500/20 text-gray-400"}`}>
                       {job.type}
                     </span>
                     <span className="text-gray-400">
                       {job.location} • {job.employmentType}
                     </span>
+                    {job.isFoundingRole && (
+                      <div className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/30">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-emerald-400">
+                          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <span className="text-sm font-medium text-emerald-400">With Equity</span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -167,26 +177,33 @@ interface JobCardProps {
   job: Job;
   onClick: () => void;
 }
-
+const EquityLabel = () => (
+  <div className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/30">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-emerald-400">
+      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+    <span className="text-xs font-medium text-emerald-400">With Equity</span>
+  </div>
+);
 // JobCard component
-const JobCard: React.FC<{
-  job: Job;
-  onClick: () => void;
-}> = ({ job, onClick }) => {
+const JobCard: React.FC<JobCardProps> = ({ job, onClick }) => {
   const typeColorClass = typeColors[job.type] || "bg-gray-500/20 text-gray-400";
 
   return (
     <div
-  onClick={onClick}
-  className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] group transition-all duration-500 hover:bg-opacity-10 cursor-pointer"
->
-  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10 bg-black/40">
-    <Eye className="w-6 h-6 text-white" />
-  </div>
+      onClick={onClick}
+      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] group transition-all duration-500 hover:bg-opacity-10 cursor-pointer"
+    >
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10 bg-black/40">
+        <Eye className="w-6 h-6 text-white" />
+      </div>
       <div className="p-4 ml-2 mr-2 md:mr-40">
         <div className="flex items-center gap-2">
           <h3 className="text-xl font-semibold text-white">{job.title}</h3>
           {job.program === "NIX" && <NixLabel />}
+          {job.isFoundingRole && <EquityLabel />}
         </div>
         <div className="flex items-center gap-3 mt-2">
           <span className={`px-3 py-1 text-sm rounded-full ${typeColorClass}`}>
@@ -223,10 +240,19 @@ const Jobs = () => {
     return acc;
   }, {});
 
+  
 
-
-const tabs = ["All","NIX Program",  "Creative", "Engineering","Operation", "Human Resource", 
+// Update the tabs array in the Jobs component:
+const tabs = [
+  "All",
+  "Founding Team",
+  "NIX Program",
+  "Creative", 
+  "Engineering",
+  "Operation", 
+  "Human Resource"
 ];
+
 
 return (
   <div className="flex flex-col items-center justify-center z-[20]" id="career">
@@ -279,19 +305,23 @@ return (
     </h3>
     
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-10 w-full max-w-7xl">
-        {jobData
-          .filter(job => selectedTab === "All" || 
-            (selectedTab === "NIX Program" ? job.program === "NIX" : job.type === selectedTab))
-          .map((job, index) => (
-            <JobCard
-              key={index}
-              job={job}
-              onClick={() => {
-                setSelectedJob(job);
-                setIsModalOpen(true);
-              }}
-            />
-          ))}
+    {jobData
+  .filter(job => {
+    if (selectedTab === "All") return true;
+    if (selectedTab === "NIX Program") return job.program === "NIX";
+    if (selectedTab === "Founding Team") return job.isFoundingRole;
+    return job.type === selectedTab;
+  })
+  .map((job, index) => (
+    <JobCard
+      key={index}
+      job={job}
+      onClick={() => {
+        setSelectedJob(job);
+        setIsModalOpen(true);
+      }}
+    />
+  ))}
       </div>
 
     <JobDetailModal
