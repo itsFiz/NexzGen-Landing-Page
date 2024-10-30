@@ -157,7 +157,7 @@ const ContactForm: React.FC = () => {
                   title="Phone"
                   content="+6011-1302 5474"
                   gradientId="phoneGradient"
-                  href="tel:+60111302547"
+                  href="tel:+601113025474"
                 />
               </div>
 

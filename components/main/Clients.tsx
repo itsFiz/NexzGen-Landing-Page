@@ -24,7 +24,7 @@ const images = [
   {
     url: "/perkeso.png",
     alt: "Perkeso",
-    description: "Social Security Organisation"
+    description: "Pertubuhan Keselamatan Sosial"
   },
   {
     url: "/klinikiris.png",
@@ -33,28 +33,28 @@ const images = [
   },
   {
     url: "/ppim.png",
-    alt: "KlinikPergigianIris",
-    description: "Klinik Pergigian Iris"
+    alt: "PergerakanPuteriIslamMalaysia",
+    description: "Pergerakan Puteri Islam Malaysia"
   },
   {
     url: "/upm.png",
-    alt: "KlinikPergigianIris",
-    description: "Klinik Pergigian Iris"
+    alt: "UPM",
+    description: "Universiti Putra Malaysia"
   },
   {
     url: "/pharmaniaga.png",
-    alt: "KlinikPergigianIris",
-    description: "Klinik Pergigian Iris"
+    alt: "Pharmaniaga",
+    description: "Pharmaniaga"
   },
   {
     url: "/as.png",
-    alt: "KlinikPergigianIris",
-    description: "Klinik Pergigian Iris"
+    alt: "AirlabSubang",
+    description: "Airlab Subang"
   },
   {
     url: "/srk.png",
-    alt: "KlinikPergigianIris",
-    description: "Klinik Pergigian Iris"
+    alt: "SmartReaderKids",
+    description: "Smart Reader Kids"
   }
 ];
 
