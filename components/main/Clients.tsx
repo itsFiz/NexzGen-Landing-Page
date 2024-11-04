@@ -33,12 +33,12 @@ const images = [
   },
   {
     url: "/ppim.png",
-    alt: "KlinikPergigianIris",
+    alt: "PergerakanPuteriIslamMalaysia",
     description: "Pergerakan Puteri Islam Malaysia"
   },
   {
     url: "/upm.png",
-    alt: "Universiti Putra Malaysia",
+    alt: "UPM",
     description: "Universiti Putra Malaysia"
   },
   {

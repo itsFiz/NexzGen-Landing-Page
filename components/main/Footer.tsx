@@ -220,7 +220,7 @@ const Footer = () => {
           variants={itemVariants}
           className="mt-16 pt-8 border-t border-gray-800 text-sm text-center text-gray-300"
         >
-          <p>Copyright © {currentYear} NexzGen. All rights reserved</p>
+          <p>Copyright © {currentYear} NexzGen Studio. All rights reserved</p>
         </motion.div>
       </div>
     </motion.footer>
