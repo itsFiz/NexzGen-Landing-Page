@@ -9,14 +9,58 @@ import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { NavigationProvider } from '@/components/sub/NavigationProvider';
-const inter = Inter({ subsets: ["latin"] });
 
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "NexzGen | Your Gateway to Cutting-Edge Solutions",
   description: "NexzGen Studio is an innovative Malaysian-based startup, established on February 24, 2024, dedicated to empowering individuals, communities & businesses through AI-driven EdTech solutions and advanced SaaS platforms.",
   icons: 'nexzgen.png',
   
+  // Open Graph metadata
+  openGraph: {
+    title: "NexzGen | Your Gateway to Cutting-Edge Solutions",
+    description: "NexzGen Studio is an innovative Malaysian-based startup, established on February 24, 2024, dedicated to empowering individuals, communities & businesses through AI-driven EdTech solutions and advanced SaaS platforms.",
+    url: 'https://nexzgen.com',
+    siteName: 'NexzGen',
+    images: [
+      {
+        url: '/preview.png', // Replace with your actual preview image path
+        width: 1200,
+        height: 630,
+        alt: 'NexzGen Landing Page Preview',
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  
+  // Twitter card metadata
+  twitter: {
+    card: 'summary_large_image',
+    title: "NexzGen | Your Gateway to Cutting-Edge Solutions",
+    description: "NexzGen Studio is an innovative Malaysian-based startup, established on February 24, 2024, dedicated to empowering individuals, communities & businesses through AI-driven EdTech solutions and advanced SaaS platforms.",
+    images: ['/preview.png'], // Replace with your actual preview image path
+    creator: '@nexzgenstudio',
+  },
+  
+  // Additional metadata
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -36,7 +80,6 @@ export default function RootLayout({
         <Analytics/>
         <SpeedInsights />
         <Footer />
-        
       </body>
     </html>
   );
