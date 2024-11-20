@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata  } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StarsCanvas from "@/components/main/StarBackground";
@@ -12,7 +12,11 @@ import { NavigationProvider } from '@/components/sub/NavigationProvider';
 
 const inter = Inter({ subsets: ["latin"] });
 
+// Add this constant for your production URL
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://nexzgen.com' || 'http://localhost:3000';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: "NexzGen | Your Gateway to Cutting-Edge Solutions",
   description: "NexzGen Studio is an innovative Malaysian-based startup, established on February 24, 2024, dedicated to empowering individuals, communities & businesses through AI-driven EdTech solutions and advanced SaaS platforms.",
   icons: 'nexzgen.png',
@@ -25,7 +29,7 @@ export const metadata: Metadata = {
     siteName: 'NexzGen',
     images: [
       {
-        url: '/preview.png', // Replace with your actual preview image path
+        url: '/preview.png',
         width: 1200,
         height: 630,
         alt: 'NexzGen Landing Page Preview',
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "NexzGen | Your Gateway to Cutting-Edge Solutions",
     description: "NexzGen Studio is an innovative Malaysian-based startup, established on February 24, 2024, dedicated to empowering individuals, communities & businesses through AI-driven EdTech solutions and advanced SaaS platforms.",
-    images: ['/preview.png'], // Replace with your actual preview image path
+    images: ['/preview.png'],
     creator: '@nexzgenstudio',
   },
   

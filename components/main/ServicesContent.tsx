@@ -38,7 +38,7 @@ interface Service {
         <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-8 border border-[#2A0E61] rounded-lg bg-transparent backdrop-blur-sm overflow-hidden"
+        className="mb-8 border border-[#2A0E61] rounded-xl bg-[#2A0E61]/5 backdrop-blur-sm overflow-hidden hover:bg-[#2A0E61]/10 transition-colors duration-300"
       >
         <button 
           className="w-full p-4 flex justify-between items-center cursor-pointer hover:bg-[#2A0E61]/20 transition-colors"
@@ -201,58 +201,107 @@ const categories = [
     }
   ];
 
+  // Add this new component for the hero section
+  const HeroSection = () => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="relative py-20 text-center px-4"
+    >
+      <div className="max-w-4xl mx-auto space-y-6">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500"
+        >
+          Level Up Your Digital Presence
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-xl text-gray-300 max-w-2xl mx-auto"
+        >
+          Innovative solutions for modern businesses. We bring your ideas to life through cutting-edge technology and creative excellence.
+        </motion.p>
+      </div>
+    </motion.div>
+  );
+
+  // Add this new component for service overview cards
+  const ServiceOverview = () => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3 }}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-6 -mt-10"
+    >
+      {categories.map((category, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 * index }}
+          className="bg-[#2A0E61]/10 backdrop-blur-sm border border-[#2A0E61] rounded-xl p-6 hover:bg-[#2A0E61]/20 transition-all duration-300 hover:scale-105"
+        >
+          <div className="mb-4">{category.icon}</div>
+          <h3 className="text-xl font-semibold text-white mb-2">{category.title}</h3>
+          <p className="text-gray-400 text-sm">{category.description}</p>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+
   
 export default function ServicesContent() {
   return (
-    <main className="flex flex-col min-h-screen z-[10]">
+    <main className="flex flex-col min-h-screen">
       <div className="relative">
-        {/* Hero Section */}
+        <HeroSection />
+        <ServiceOverview />
         
-
-        {/* Services Overview Cards */}
-        
-
-        {/* Detailed Services Section */}
+        {/* Update the Detailed Services Section */}
         <motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ delay: 0.4 }}
-  className="bg-transparent"  // Changed from bg-[#0300140d]
->
-  <div className="max-w-6xl mx-auto p-6 py-20">
-    <h2 className="text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-500 mb-12">
-      Explore Our Services
-    </h2>
-    <p className="text-center text-gray-300 max-w-2xl mx-auto mb-10">
-            Comprehensive services tailored to transform your ideas into reality.
-          </p>
-    <div className="space-y-6">
-      {categories.map((category, index) => (
-        <ServiceCategory 
-          key={index} 
-          {...category} 
-        />
-      ))}
-    </div>
-  </div>
-</motion.div>
-<Clients/>
-        {/* Call to Action Section */}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="bg-transparent py-20"
+        >
+          <div className="max-w-6xl mx-auto p-6">
+            <h2 className="text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-500 mb-6">
+              Our Expertise
+            </h2>
+            <p className="text-center text-gray-300 max-w-2xl mx-auto mb-12">
+              Discover our comprehensive range of services designed to elevate your business
+            </p>
+            <div className="space-y-6">
+              {categories.map((category, index) => (
+                <ServiceCategory 
+                  key={index} 
+                  {...category} 
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        <Clients />
+
+        {/* Update the CTA Section */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className=" pt-20 px-4 text-center"
+          className="py-20 px-4 text-center bg-gradient-to-b from-transparent to-[#2A0E61]/20"
         >
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-3xl font-bold text-white">
+          <div className="max-w-3xl mx-auto space-y-8">
+            <h2 className="text-4xl font-bold text-white">
               Ready to Transform Your Ideas?
             </h2>
-            <p className="text-gray-300">
+            <p className="text-xl text-gray-300">
               Let&apos;s collaborate to bring your vision to life with our comprehensive suite of services.
             </p>
-            
-<GetStartedButton/>
+            <GetStartedButton />
           </div>
         </motion.div>
       </div>

@@ -58,7 +58,7 @@ const Footer = () => {
       content: [
         {
           text: "SSM Business Info",
-          link: "https://drive.google.com/file/d/1Obni8cbmoY0tUeNBv7On7ue5JP92Erk1/view?usp=sharing",
+          link: "https://drive.google.com/file/d/1dIsxgUIq6WYVPARKwXMmkCT8p9baYZxu/view?usp=sharing",
           icon: <ExternalLink className="w-4 h-4" />
         },
         {

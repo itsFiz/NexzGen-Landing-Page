@@ -142,6 +142,7 @@ const ContactForm: React.FC = () => {
                   title="Location"
                   content="Level 9, Integra Tower, 348, Jln Tun Razak, 50400, Kuala Lumpur"
                   gradientId="locationGradient"
+                  href='https://maps.google.com/maps/dir//Integra+Tower+348,+Jln+Tun+Razak+Kampung+Datuk+Keramat+50400+Kuala+Lumpur,+Federal+Territory+of+Kuala+Lumpur/@3.160878,101.7202945,20z/data=!4m5!4m4!1m0!1m2!1m1!1s0x31cc377e395d17c9:0x649b6ef7734cde44'
                 />
                 
                 <ContactInfo

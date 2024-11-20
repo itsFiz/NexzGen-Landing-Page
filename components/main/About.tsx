@@ -45,6 +45,7 @@ const directorsData = [
   {
     name: "Hafiz Kadir",
     role: "Founder | CEO & CTO",
+    altRole: "Chief Everything Officer",
     image: "/ceo.png",
     description: "Visionary technologist with a knack for staying ahead, driving the company's technological endeavors with a forward-thinking approach. Experienced in both technical development and business strategy.",
     qualifications: [
@@ -89,6 +90,7 @@ const directorsData = [
   {
     name: "Andi A Ghani",
     role: "Co-founder | CCO",
+    altRole: "Chief Cartoon Officer",
     image: "/cco.png",
     description: "A seasoned animation director with over a decade of experience, transforming concepts into captivating visual masterpieces and guiding the artistic direction of major animation projects.",
     qualifications: [
@@ -127,6 +129,7 @@ const directorsData = [
   {
     name: "Putera Shazmin",
     role: "Co-founder | COO",
+    altRole: "Chief Overtime Officer",
     image: "/coo.png",
     description: "Strategist and implementer with a strong background in human resource management and operational optimization, ensuring seamless business operations and talent development.",
     qualifications: [
@@ -163,6 +166,7 @@ const directorsData = [
   {
     name: "Aliff Farhat",
     role: "Co-founder | CMO",
+    altRole: "Chief Meme Officer",
     image: "/cmo.png",
     description: "Marketing expert and content creator with a strong background in visual storytelling, transforming ideas into compelling narratives and building strong brand presence across platforms.",
     qualifications: [
@@ -201,6 +205,7 @@ const directorsData = [
   {
     name: "Tengku Amirul Haiqal",
     role: "Co-founder | CIO",
+    altRole: "Chief Insomnia Officer",
     image: "/cgo.png",
     description: "Creative game designer and developer with expertise in interactive experiences, bringing gaming concepts to life with innovative approaches to engagement and user experience.",
     qualifications: [
@@ -282,6 +287,52 @@ const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   </div>
 );
 
+// Combine both style definitions into a single constant
+const styles = `
+  @keyframes borderAnimation {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+  }
+
+  @keyframes borderLightning {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+`;
+
+// Update the AltRoleStyle interface
+interface AltRoleStyle {
+  color: string;
+  borderColor: string;
+}
+
+// Update the altRoleStyles constant (removed emoji property)
+const altRoleStyles: { [key: string]: AltRoleStyle } = {
+  "Chief Everything Officer": {
+   color: "text-violet-400",
+    borderColor: "border-violet-400/30"
+  },
+  "Chief Cartoon Officer": {
+    color: "text-pink-400",
+    borderColor: "border-pink-400/30"
+  },
+  "Chief Overtime Officer": {
+    color: "text-yellow-400",
+    borderColor: "border-yellow-400/30"
+  },
+  "Chief Meme Officer": {
+    color: "text-green-400",
+    borderColor: "border-green-400/30"
+  },
+  "Chief Insomnia Officer": {
+    color: "text-blue-400",
+    borderColor: "border-blue-400/30"
+  }
+};
 
 const About = () => {
   const [tab, setTab] = useState<string>("about");
@@ -500,16 +551,37 @@ const About = () => {
             
             {/* Services Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <style>{styles}</style>
               {categories.map((category, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-2xl border border-[#2A0E61] bg-[#0300145e] backdrop-blur-md group hover:bg-[#0300147e] transition-all"
+                  className="relative p-[1px] rounded-2xl group border border-purple-500/20"
                 >
-                  <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    {category.icon}
+                  {/* Animated border wrapper */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 group-hover:opacity-100 animate-border-flow" 
+                    style={{
+                      background: 'linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.8), transparent)',
+                      backgroundSize: '300% 100%',
+                      animation: 'borderAnimation 3s linear infinite',
+                    }}
+                  />
+
+                  {/* Card content */}
+                  <div className="relative p-6 rounded-2xl bg-[#0300145e] backdrop-blur-md group-hover:bg-[#0300147e] transition-all h-full border border-purple-500/10">
+                    <motion.div 
+                      className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mb-4"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                    >
+                      {category.icon}
+                    </motion.div>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      {category.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm">
+                      {category.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{category.title}</h3>
-                  <p className="text-gray-400 text-sm">{category.description}</p>
                 </div>
               ))}
             </div>
@@ -611,126 +683,146 @@ const About = () => {
       animate="visible"
       exit="exit"
       variants={contentVariants}
-      className="grid grid-cols-1 gap-4 sm:gap-8 md:grid-cols-2"
+      className="grid grid-cols-1 gap-4 sm:gap-8 md:grid-cols-2 auto-rows-auto"
     >
       {directorsData.map((director, index) => (
         <motion.div
           key={index}
-          className="director-card bg-gray-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-800 hover:border-purple-500/50 transition-colors"
-          whileHover={{ scale: 1.02, translateY: -5 }}
+          className="relative group h-fit"
+          whileHover={{ scale: 1 }}
         >
-          <div className="flex flex-col gap-4">
-            {/* Header - Image and Basic Info */}
-            <div className="flex items-center gap-3">
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
-                <Image 
-                  src={director.image}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  alt={director.name}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-              
-              <div className="min-w-0">
-                <h3 className="text-lg sm:text-xl font-bold text-white truncate">
-                  {director.name}
-                </h3>
-                <p className="text-sm sm:text-base text-purple-400 font-medium">
-                  {director.role}
-                </p>
-                <div className="flex gap-2 mt-2">
-                  {Object.entries(director.socialLinks).map(([platform, link]) => (
-                    <SocialIcon 
-                      key={platform} 
-                      platform={platform} 
-                      link={link}
-                    />
-                  ))}
+          {/* Lightning border wrapper */}
+          <div className={`
+            absolute -inset-[1px] rounded-xl opacity-0 group-hover:opacity-100
+            bg-gradient-to-r from-violet-500 via-violet-200 to-violet-500
+            blur-[2px] transition-opacity duration-300
+            bg-[length:200%_100%]
+            animate-[borderLightning_3s_linear_infinite]
+          `} />
+
+          {/* Card content */}
+          <div className="director-card relative bg-gray-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-800 h-full">
+            <div className="flex flex-col gap-4">
+              {/* Header - Image and Basic Info */}
+              <div className="flex items-center gap-3">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
+                  <Image 
+                    src={director.image}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    alt={director.name}
+                    className="rounded-lg shadow-lg"
+                  />
+                </div>
+                
+                <div className="min-w-0">
+                  <h3 className="text-lg sm:text-xl font-bold text-white truncate">
+                    {director.name}
+                  </h3>
+                  <p className="text-sm sm:text-base text-purple-400 font-medium">
+                    {director.role}
+                  </p>
+                  <p className={`
+                    text-xs italic px-2 py-1 rounded-full inline-flex items-center gap-1
+                    ${altRoleStyles[director.altRole].color}
+                    ${altRoleStyles[director.altRole].borderColor}
+                    border bg-black/20 backdrop-blur-sm
+                  `}>
+                    also known as "{director.altRole}"
+                  </p>
+                  <div className="flex gap-2 mt-2">
+                    {Object.entries(director.socialLinks).map(([platform, link]) => (
+                      <SocialIcon 
+                        key={platform} 
+                        platform={platform} 
+                        link={link}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Description */}
-            <p className="text-sm sm:text-base text-gray-300">
-              {director.description}
-            </p>
+              {/* Description */}
+              <p className="text-sm sm:text-base text-gray-300">
+                {director.description}
+              </p>
 
-            {/* Background Summary */}
-            <div className="mt-2">
-              <div className="flex items-center gap-2 mb-3">
-                <Briefcase className="w-4 h-4 text-purple-400" />
-                <h4 className="text-base sm:text-lg font-semibold text-white">
-                  Background Summary
-                </h4>
+              {/* Background Summary */}
+              <div className="mt-2">
+                <div className="flex items-center gap-2 mb-3">
+                  <Briefcase className="w-4 h-4 text-purple-400" />
+                  <h4 className="text-base sm:text-lg font-semibold text-white">
+                    Background Summary
+                  </h4>
+                </div>
+                <ul className="space-y-1.5 text-sm sm:text-base text-gray-300">
+                  {director.qualifications.map((qualification, idx) => (
+                    <li 
+                      key={idx}
+                      className="flex items-start gap-2"
+                    >
+                      <span className="text-purple-400 mt-1 flex-shrink-0">•</span>
+                      <span className="line-clamp-2 sm:line-clamp-none">
+                        {qualification}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-1.5 text-sm sm:text-base text-gray-300">
-                {director.qualifications.map((qualification, idx) => (
-                  <li 
-                    key={idx}
-                    className="flex items-start gap-2"
-                  >
-                    <span className="text-purple-400 mt-1 flex-shrink-0">•</span>
-                    <span className="line-clamp-2 sm:line-clamp-none">
-                      {qualification}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
 
-            {/* Skills Section - Expandable */}
-            <ExpandableSection
-              title="Skills"
-              icon={BadgeCheck}
-              isExpanded={expandedSections[index]?.skills || false}
-              onToggle={() => toggleSection(index, 'skills')}
-            >
-              <div className="space-y-4">
-                {director.skills.map((skillSet, idx) => (
-                  <div key={idx} className="mb-3">
-                    <p className="text-sm font-medium text-gray-400 mb-2">
-                      {skillSet.category}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {skillSet.tags.map((tag, tagIdx) => (
-                        <span
-                          key={tagIdx}
-                          className="px-2 py-1 text-xs rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 hover:bg-purple-500/30 transition-colors"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+              {/* Skills Section - Expandable */}
+              <ExpandableSection
+                title="Skills"
+                icon={BadgeCheck}
+                isExpanded={expandedSections[index]?.skills || false}
+                onToggle={() => toggleSection(index, 'skills')}
+              >
+                <div className="space-y-4">
+                  {director.skills.map((skillSet, idx) => (
+                    <div key={idx} className="mb-3">
+                      <p className="text-sm font-medium text-gray-400 mb-2">
+                        {skillSet.category}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {skillSet.tags.map((tag, tagIdx) => (
+                          <span
+                            key={tagIdx}
+                            className="px-2 py-1 text-xs rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 hover:bg-purple-500/30 transition-colors"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </ExpandableSection>
+                  ))}
+                </div>
+              </ExpandableSection>
 
-            {/* Achievements Section - Expandable */}
-            <ExpandableSection
-              title="Key Achievements"
-              icon={Award}
-              isExpanded={expandedSections[index]?.achievements || false}
-              onToggle={() => toggleSection(index, 'achievements')}
-            >
-              <ul className="space-y-1.5">
-                {director.achievements.map((achievement, idx) => (
-                  <li 
-                    key={idx}
-                    className="flex items-start gap-2"
-                  >
-                    <span className="text-purple-400 mt-1 flex-shrink-0">•</span>
-                    <span className="text-sm text-gray-300">
-                      {achievement}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </ExpandableSection>
-          </div>
-        </motion.div>
-      ))}
+              {/* Achievements Section - Expandable */}
+              <ExpandableSection
+                title="Key Achievements"
+                icon={Award}
+                isExpanded={expandedSections[index]?.achievements || false}
+                onToggle={() => toggleSection(index, 'achievements')}
+              >
+                <ul className="space-y-1.5">
+                  {director.achievements.map((achievement, idx) => (
+                    <li 
+                      key={idx}
+                      className="flex items-start gap-2"
+                    >
+                      <span className="text-purple-400 mt-1 flex-shrink-0">•</span>
+                      <span className="text-sm text-gray-300">
+                        {achievement}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </ExpandableSection>
+            </div>
+            </div>
+          </motion.div>
+        ))}
     </motion.div>
       );
     }
