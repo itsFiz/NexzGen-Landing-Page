@@ -472,7 +472,7 @@ const About = () => {
     {
       title: "Digital Marketing",
       icon: <GradientIcon icon={<Megaphone strokeWidth={1.5} className="w-6 h-6 stroke-[url(#gradient)]" />} />,
-      description: "Amplify your brand&apos;s digital presence with our comprehensive marketing solutions. We create data-driven strategies that connect with your audience and drive meaningful results.",
+      description: "Amplify your brand's digital presence with our comprehensive marketing solutions. We create data-driven strategies that connect with your audience and drive meaningful results.",
       services: [
         {
           name: "Social Media Marketing",
@@ -728,7 +728,7 @@ const About = () => {
                     ${altRoleStyles[director.altRole].borderColor}
                     border bg-black/20 backdrop-blur-sm
                   `}>
-                    also known as "{director.altRole}"
+                    also known as &quot;{director.altRole}&quot;
                   </p>
                   <div className="flex gap-2 mt-2">
                     {Object.entries(director.socialLinks).map(([platform, link]) => (
