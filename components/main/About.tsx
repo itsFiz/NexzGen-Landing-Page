@@ -472,7 +472,7 @@ const About = () => {
     {
       title: "Digital Marketing",
       icon: <GradientIcon icon={<Megaphone strokeWidth={1.5} className="w-6 h-6 stroke-[url(#gradient)]" />} />,
-      description: "Amplify your brand&quot;s digital presence with our comprehensive marketing solutions. We create data-driven strategies that connect with your audience and drive meaningful results.",
+      description: "Amplify your brand&apos;s digital presence with our comprehensive marketing solutions. We create data-driven strategies that connect with your audience and drive meaningful results.",
       services: [
         {
           name: "Social Media Marketing",
