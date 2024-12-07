@@ -56,20 +56,20 @@
         instagram: "https://instagram.com/andiagani"
       }
     },
-    {
-      name: "Putera Shazmin",
-      role: "Co-founder | COO",
-      image: "/coo.png",
-      description: "Strategist and implementer with a track record of optimizing processes and ensuring seamless business operations.",
-      qualifications: [
-        "Human Resource Management Graduate from Universiti Poly-Tech Malaysia",
-        "Skilled in project management, team leadership, and organizational development",
-        "Former Talent Acquisition Intern at Tan Chong Group"
-      ],
-      socialLinks: {
-        linkedin: "https://linkedin.com/in/puterashazmin"
-      }
-    },
+    // {
+    //   name: "Putera Shazmin",
+    //   role: "Co-founder | COO",
+    //   image: "/coo.png",
+    //   description: "Strategist and implementer with a track record of optimizing processes and ensuring seamless business operations.",
+    //   qualifications: [
+    //     "Human Resource Management Graduate from Universiti Poly-Tech Malaysia",
+    //     "Skilled in project management, team leadership, and organizational development",
+    //     "Former Talent Acquisition Intern at Tan Chong Group"
+    //   ],
+    //   socialLinks: {
+    //     linkedin: "https://linkedin.com/in/puterashazmin"
+    //   }
+    // },
     {
       name: "Tengku Amirul Haiqal",
       role: "Co-founder | CIO",
