@@ -166,14 +166,13 @@ const ContactForm: React.FC = () => {
               <div className="mt-8 rounded-2xl overflow-hidden border border-[#2A0E61] bg-[#0300145e]">
                 <div className="relative w-full h-[300px]">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d248.98426186254335!2d101.72025995802187!3d3.1609320682863338!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc377e395d17c9%3A0x649b6ef7734cde44!2sIntegra%20Tower!5e0!3m2!1sen!2smy!4v1729614347940!5m2!1sen!2smy"
-                    width="100%"
-                    height="300"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15934.98152231499!2d101.720355!3d3.1616636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37b60fccc8dd%3A0x14323d4fcc6e9193!2sNexzGen%20Studio!5e0!3m2!1sen!2smy!4v1733566016022!5m2!1sen!2smy"
+                    width="600"
+                    height="450"
                     style={{ border: 0 }}
-                    allowFullScreen={true}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="hover:grayscale-0 transition-all duration-300"
+                    className=" transition-all duration-300"
                   />
                 </div>
               </div>

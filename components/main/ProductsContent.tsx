@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Search, Users, Target, Star } from 'lucide-react';
+import { Search, Users, Target, Star, Filter, Grid, List, SortAsc, SortDesc } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Types
@@ -219,11 +219,26 @@ const products: Product[] = [
   }
 ];
 
+const fadeInVariants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut"
+    }
+  }
+};
+
 const ProductsContent = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [activeTab, setActiveTab] = useState('overview');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [sortBy, setSortBy] = useState<'name' | 'status' | 'completion'>('name');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
   const handleProductSelect = (product: Product) => {
     setSelectedProduct(product);
@@ -234,13 +249,38 @@ const ProductsContent = () => {
     const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
     const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          product.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    const matchesStatus = activeFilters.length === 0 || activeFilters.includes(product.status);
+    return matchesCategory && matchesSearch && matchesStatus;
   });
+
+  // Enhanced filtering and sorting
+  const sortedAndFilteredProducts = filteredProducts
+    .sort((a, b) => {
+      switch (sortBy) {
+        case 'name':
+          return sortOrder === 'asc' 
+            ? a.title.localeCompare(b.title)
+            : b.title.localeCompare(a.title);
+        case 'status':
+          return sortOrder === 'asc'
+            ? a.status.localeCompare(b.status)
+            : b.status.localeCompare(a.status);
+        case 'completion':
+          const aCompletion = parseInt(a.metrics.completion) || 0;
+          const bCompletion = parseInt(b.metrics.completion) || 0;
+          return sortOrder === 'asc'
+            ? aCompletion - bCompletion
+            : bCompletion - aCompletion;
+        default:
+          return 0;
+      }
+    });
 
   return (
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
       className="min-h-screen bg-gradient-to-b from-gray-900/50 to-black/50 text-white backdrop-blur-sm"
     >
       {/* Header with animation */}
@@ -260,12 +300,12 @@ const ProductsContent = () => {
 
       {/* Search and Filters with animation */}
       <motion.div 
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        variants={fadeInVariants}
+        initial="hidden"
+        animate="visible"
         className="max-w-7xl mx-auto px-4 mb-8"
       >
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-4">
           <div className="relative w-full md:w-64">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
             <input
@@ -276,109 +316,186 @@ const ProductsContent = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <div className="flex gap-2">
-            {["all", "EdTech", "MedTech", "SaaS"].map((category) => (
-              <motion.button
-                key={category}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-md backdrop-blur-sm ${
-                  selectedCategory === category
-                    ? "bg-purple-500/80 text-white"
-                    : "bg-gray-700/50 text-gray-200 hover:bg-gray-600/50"
-                }`}
-              >
-                {category === "all" ? "All" : category}
-              </motion.button>
-            ))}
+
+          {/* View Mode Toggle */}
+          <div className="flex gap-2 bg-gray-800/50 p-1 rounded-lg">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setViewMode('grid')}
+              className={`p-2 rounded ${viewMode === 'grid' ? 'bg-purple-500/80' : 'hover:bg-gray-700/50'}`}
+            >
+              <Grid size={20} />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setViewMode('list')}
+              className={`p-2 rounded ${viewMode === 'list' ? 'bg-purple-500/80' : 'hover:bg-gray-700/50'}`}
+            >
+              <List size={20} />
+            </motion.button>
           </div>
+
+          {/* Sort Controls */}
+          <div className="flex gap-2 items-center">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as 'name' | 'status' | 'completion')}
+              className="bg-gray-800/50 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              <option value="name">Name</option>
+              <option value="status">Status</option>
+              <option value="completion">Completion</option>
+            </select>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+              className="p-2 bg-gray-800/50 rounded-lg hover:bg-gray-700/50"
+            >
+              {sortOrder === 'asc' ? <SortAsc size={20} /> : <SortDesc size={20} />}
+            </motion.button>
+          </div>
+        </div>
+
+        {/* Advanced Filters */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {['Active', 'Beta', 'Development', 'Prototype'].map((status) => (
+            <motion.button
+              key={status}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => {
+                setActiveFilters(prev => 
+                  prev.includes(status)
+                    ? prev.filter(f => f !== status)
+                    : [...prev, status]
+                )
+              }}
+              className={`px-3 py-1 rounded-full text-sm ${
+                activeFilters.includes(status)
+                  ? 'bg-purple-500/80'
+                  : 'bg-gray-700/50 hover:bg-gray-600/50'
+              }`}
+            >
+              {status}
+            </motion.button>
+          ))}
         </div>
       </motion.div>
 
-       {/* Products Grid with animation */}
+       {/* Products Grid/List View */}
        <motion.div 
-        className="max-w-7xl mx-auto px-4 pb-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
+        key={viewMode + activeFilters.join(',')}
+        variants={fadeInVariants}
+        initial="hidden"
+        animate="visible"
+        className={`max-w-7xl mx-auto px-4 pb-20 ${
+          viewMode === 'list' ? 'space-y-4' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+        }`}
       >
-        <motion.div 
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          <AnimatePresence>
-            {filteredProducts.map((product) => (
-              <motion.div
-                key={product.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                whileHover={{ scale: 1.02 }}
-                onClick={() => handleProductSelect(product)}
-                className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-lg p-6 hover:border-purple-500 transition-all cursor-pointer"
-              >
-              <div className="flex justify-between items-start mb-4">
-                <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                  product.status === "Active" ? "bg-purple-500" : 
-                  product.status === "Beta" ? "bg-gray-700" : "border border-gray-600"
-                }`}>
-                  {product.status}
-                </span>
-                <span className="px-2 py-1 rounded-full text-xs font-semibold border border-gray-600">
-                  {product.category}
-                </span>
-              </div>
-              
-              <h3 className="text-2xl font-semibold mb-2">{product.title}</h3>
-              <p className="text-gray-400 mb-4">{product.description}</p>
-              
-              <div className="flex flex-wrap gap-2 mb-4">
-                {product.features.slice(0, 3).map((feature, index) => (
-                  <span key={index} className="px-2 py-1 rounded-full text-xs font-semibold bg-purple-500/20">
-                    {feature}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center">
-                  <Users className="w-5 h-5 mx-auto mb-1 text-purple-400" />
-                  <p className="text-sm text-gray-400">Users</p>
-                  <p className="font-semibold">{product.metrics.users}</p>
-                </div>
-                <div className="text-center">
-                  <Star className="w-5 h-5 mx-auto mb-1 text-purple-400" />
-                  <p className="text-sm text-gray-400">Satisfaction</p>
-                  <p className="font-semibold">{product.metrics.satisfaction}</p>
-                </div>
-                <div className="text-center">
-                  <Target className="w-5 h-5 mx-auto mb-1 text-purple-400" />
-                  <p className="text-sm text-gray-400">Completion</p>
-                  <p className="font-semibold">{product.metrics.completion}</p>
-                </div>
-              </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        <AnimatePresence>
+          {filteredProducts.map((product) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              whileHover={{ scale: 1.02 }}
+              onClick={() => handleProductSelect(product)}
+              className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-6 hover:border-purple-500 transition-colors cursor-pointer ${
+                viewMode === 'list' ? 'flex gap-6 items-center' : ''
+              }`}
+            >
+              {/* Existing card content with conditional styling for list view */}
+              {viewMode === 'list' ? (
+                <>
+                  <div className="flex-shrink-0 w-24 h-24 bg-gray-700/50 rounded-lg overflow-hidden">
+                    <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-semibold">{product.title}</h3>
+                      <div className="flex gap-2">
+                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                          product.status === "Active" ? "bg-purple-500" : 
+                          product.status === "Beta" ? "bg-gray-700" : "border border-gray-600"
+                        }`}>
+                          {product.status}
+                        </span>
+                        <span className="px-2 py-1 rounded-full text-xs font-semibold border border-gray-600">
+                          {product.category}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-gray-400">{product.description}</p>
+                  </div>
+                </>
+              ) : (
+                // Existing grid view content
+                <>
+                  <div className="flex justify-between items-start mb-4">
+                    <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                      product.status === "Active" ? "bg-purple-500" : 
+                      product.status === "Beta" ? "bg-gray-700" : "border border-gray-600"
+                    }`}>
+                      {product.status}
+                    </span>
+                    <span className="px-2 py-1 rounded-full text-xs font-semibold border border-gray-600">
+                      {product.category}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-2">{product.title}</h3>
+                  <p className="text-gray-400 mb-4">{product.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {product.features.slice(0, 3).map((feature, index) => (
+                      <span key={index} className="px-2 py-1 rounded-full text-xs font-semibold bg-purple-500/20">
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="text-center">
+                      <Users className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+                      <p className="text-sm text-gray-400">Users</p>
+                      <p className="font-semibold">{product.metrics.users}</p>
+                    </div>
+                    <div className="text-center">
+                      <Star className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+                      <p className="text-sm text-gray-400">Satisfaction</p>
+                      <p className="font-semibold">{product.metrics.satisfaction}</p>
+                    </div>
+                    <div className="text-center">
+                      <Target className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+                      <p className="text-sm text-gray-400">Completion</p>
+                      <p className="font-semibold">{product.metrics.completion}</p>
+                    </div>
+                  </div>
+                </>
+              )}
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </motion.div>
 
-{/* Modal */}
+{/* Modal with improved animations */}
 <AnimatePresence>
   {selectedProduct && (
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
       className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50"
       onClick={() => setSelectedProduct(null)}
     >
       <motion.div 
-        initial={{ scale: 0.9, y: 20 }}
-        animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.9, y: 20 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
         className="bg-gray-800/90 backdrop-blur-md rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
@@ -459,9 +576,9 @@ const ProductsContent = () => {
                 {activeTab === 'overview' && (
                   <motion.div
                     key="overview"
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
+                    exit={{ opacity: 0, y: -15 }}
                     className="space-y-8"
                   >
                     {['mission', 'vision', 'impact'].map((section) => (
@@ -491,9 +608,9 @@ const ProductsContent = () => {
                 {activeTab === 'features' && (
                   <motion.div
                     key="features"
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
+                    exit={{ opacity: 0, y: -15 }}
                     className="grid gap-4"
                   >
                     {selectedProduct.detailedFeatures.map((feature, index) => (
@@ -519,9 +636,9 @@ const ProductsContent = () => {
                 {activeTab === 'metrics' && (
                   <motion.div
                     key="metrics"
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
+                    exit={{ opacity: 0, y: -15 }}
                     className="grid grid-cols-3 gap-6"
                   >
                     {[

@@ -126,43 +126,43 @@ const directorsData = [
 
     }
   },
-  {
-    name: "Putera Shazmin",
-    role: "Co-founder | COO",
-    altRole: "Chief Overtime Officer",
-    image: "/coo.png",
-    description: "Strategist and implementer with a strong background in human resource management and operational optimization, ensuring seamless business operations and talent development.",
-    qualifications: [
-      "Human Resource Management Graduate from Universiti Poly-Tech Malaysia",
-      "Former Talent Acquisition Intern at Tan Chong Group",
-      "Experienced in HR operations and talent management",
-      "Specialist in organizational development"
-    ],
-    skills: [
-      { 
-        category: "HR Management", 
-        tags: ["Talent Acquisition", "Employee Development", "HR Operations", "Performance Management"] 
-      },
-      { 
-        category: "Operations", 
-        tags: ["Process Optimization", "Strategic Planning", "Resource Management", "Policy Development"] 
-      },
-      { 
-        category: "Leadership", 
-        tags: ["Team Building", "Change Management", "Organizational Development", "Strategic HR"] 
-      }
-    ],
-    achievements: [
-      "Established NexzGen's HR framework and policies",
-      "Developed talent acquisition strategies",
-      "Implemented efficient operational processes",
-      "Created employee development programs"
-    ],
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/putera-shazmin-878bb2283/",
-      instagram: "https://www.instagram.com/puterashazmin/"
-    }
-  },
+  // {
+  //   name: "Putera Shazmin",
+  //   role: "Co-founder | COO",
+  //   altRole: "Chief Overtime Officer",
+  //   image: "/coo.png",
+  //   description: "Strategist and implementer with a strong background in human resource management and operational optimization, ensuring seamless business operations and talent development.",
+  //   qualifications: [
+  //     "Human Resource Management Graduate from Universiti Poly-Tech Malaysia",
+  //     "Former Talent Acquisition Intern at Tan Chong Group",
+  //     "Experienced in HR operations and talent management",
+  //     "Specialist in organizational development"
+  //   ],
+  //   skills: [
+  //     { 
+  //       category: "HR Management", 
+  //       tags: ["Talent Acquisition", "Employee Development", "HR Operations", "Performance Management"] 
+  //     },
+  //     { 
+  //       category: "Operations", 
+  //       tags: ["Process Optimization", "Strategic Planning", "Resource Management", "Policy Development"] 
+  //     },
+  //     { 
+  //       category: "Leadership", 
+  //       tags: ["Team Building", "Change Management", "Organizational Development", "Strategic HR"] 
+  //     }
+  //   ],
+  //   achievements: [
+  //     "Established NexzGen's HR framework and policies",
+  //     "Developed talent acquisition strategies",
+  //     "Implemented efficient operational processes",
+  //     "Created employee development programs"
+  //   ],
+  //   socialLinks: {
+  //     linkedin: "https://www.linkedin.com/in/putera-shazmin-878bb2283/",
+  //     instagram: "https://www.instagram.com/puterashazmin/"
+  //   }
+  // },
   {
     name: "Aliff Farhat",
     role: "Co-founder | CMO",

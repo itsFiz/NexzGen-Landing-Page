@@ -444,5 +444,37 @@ applyUrl: "/careers/apply/12"
     ],
     applyUrl: "/careers/apply/14"
   },
+  {
+    id: '15',
+    title: "Fullstack Developer",
+    type: "Engineering",
+    program: "NIX",
+    location: "Kuala Lumpur",
+    employmentType: "Internship",
+    description: "Join our NIX program as a part-time Fullstack Developer intern. Work alongside our engineering team to build and maintain web applications while gaining hands-on experience with modern development technologies.",
+    responsibilities: [
+      "Assist in developing features using Next.js and React",
+      "Write clean, maintainable code under mentorship",
+      "Learn and implement backend APIs with Prisma",
+      "Participate in code reviews and technical discussions",
+      "Collaborate with other interns and full-time developers"
+    ],
+    prerequisites: [
+      "Currently pursuing Computer Science or related degree",
+      "Basic knowledge of JavaScript/TypeScript",
+      "Familiarity with React fundamentals",
+      "Understanding of HTML, CSS, and responsive design",
+      "Strong willingness to learn and grow"
+    ],
+    benefits: [
+      "Monthly allowance",
+      "Flexible working hours",
+      "Mentorship from senior developers",
+      "Hands-on project experience",
+      "Certificate upon completion",
+      "Potential for full-time conversion"
+    ],
+    applyUrl: "/careers/apply/15"
+  },
   // ... Add all other jobs here
 ]
