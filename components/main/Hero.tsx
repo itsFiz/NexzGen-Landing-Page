@@ -142,7 +142,7 @@ const Hero = () => {
             }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full relative overflow-hidden group"
-            onClick={handleProjectsClick}
+            
           >
             <motion.span 
               className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-300"
@@ -159,7 +159,7 @@ const Hero = () => {
             }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-full relative overflow-hidden group"
-            onClick={handleCareersClick}
+            
           >
             <motion.span 
               className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-300"

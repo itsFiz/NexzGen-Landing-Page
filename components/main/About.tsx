@@ -49,7 +49,6 @@ const directorsData = [
     image: "/ceo.png",
     description: "Visionary technologist with a knack for staying ahead, driving the company's technological endeavors with a forward-thinking approach. Experienced in both technical development and business strategy.",
     qualifications: [
-      "Executive (System Development) at TNB Research",
       "Graduate Technologist certified by MBOT",
       "Former IT Associate at UOB, 3D Content Developer at Innoveam",
       "Computer Science (Multimedia) graduate from University Putra Malaysia",

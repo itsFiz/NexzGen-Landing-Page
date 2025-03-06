@@ -56,11 +56,11 @@ const Footer = () => {
     {
       title: "About",
       content: [
-        {
-          text: "SSM Business Info",
-          link: "https://drive.google.com/file/d/1dIsxgUIq6WYVPARKwXMmkCT8p9baYZxu/view?usp=sharing",
-          icon: <ExternalLink className="w-4 h-4" />
-        },
+        // {
+        //   text: "SSM Business Info",
+        //   link: "https://drive.google.com/file/d/1dIsxgUIq6WYVPARKwXMmkCT8p9baYZxu/view?usp=sharing",
+        //   icon: <ExternalLink className="w-4 h-4" />
+        // },
         {
           text: "+60 11-1302 5474",
           link: "tel:+60 11-1302 5474",
@@ -220,7 +220,7 @@ const Footer = () => {
           variants={itemVariants}
           className="mt-16 pt-8 border-t border-gray-800 text-sm text-center text-gray-300"
         >
-          <p>Copyright © {currentYear} NexzGen Studio. All rights reserved</p>
+          <p>Copyright © 2024-2025 NexzGen Studio. All rights reserved</p>
         </motion.div>
       </div>
     </motion.footer>

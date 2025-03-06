@@ -9,9 +9,10 @@ const Navbar = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const navItems = [
-    { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
+    { name: 'Works', path: '/works' },
     { name: 'Ventures', path: '/ventures' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Career', path: '/careers' },
     { name: 'Contact', path: '/contact' }
   ];

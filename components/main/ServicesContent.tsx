@@ -288,7 +288,7 @@ export default function ServicesContent() {
         <Clients />
 
         {/* Update the CTA Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
@@ -303,7 +303,7 @@ export default function ServicesContent() {
             </p>
             <GetStartedButton />
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </main>
   );

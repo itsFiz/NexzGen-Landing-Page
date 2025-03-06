@@ -115,7 +115,7 @@ const Clients = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Partnering with leading organizations to drive innovation in education and technology
+            Collaborated with leading organizations to drive innovation in education and technology
           </motion.p>
         </div>
 
